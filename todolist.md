@@ -4,9 +4,9 @@ Sprint 1 — Temel İşlevler (Bitirmen Gerekenler)
 ✅ Not ekleme
 ✅ Notları görüntüleme
 ✅ Not silme
-⬜ Not düzenleme
-⬜ Çıkış
-⬜ Hatalı giriş kontrolü
+✅ Not düzenleme
+✅ Çıkış
+✅ Hatalı giriş kontrolü
 
 
 
@@ -96,6 +96,7 @@ Sprint 7 — Kullanıcı Deneyimi
 ⬜ "Devam etmek için Enter..."
 ⬜ Hata mesajları
 ⬜ Başarılı mesajları
+⬜ Linux ve mac icin tercih ayarla
 
 
 

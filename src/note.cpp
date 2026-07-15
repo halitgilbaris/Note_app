@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <windows.h>
+#include <conio.h>
+#include <vector>
 
 #include "note.h"
 
@@ -48,11 +51,10 @@ void view_note(const vector<string> &notes){
 
 
 
-
 void delete_note(vector<string> &notes){
 
     if(notes.empty()){
-        cout << "No notes available to delete!" << endl;
+        cout << "No notes available to delete!\n";
         return;
     }
 
@@ -65,6 +67,60 @@ void delete_note(vector<string> &notes){
         notes.erase(notes.begin() + (deletenote - 1));
     }else{
         cout << "Invaild note number!\n";
+    }
+
+
+}
+
+
+
+
+
+void edit_note(vector<string> &notes){
+
+    if(notes.empty()){
+        cout << "No notes avaiable to edit!\n";
+        return;
+    }
+    
+    int editnote;
+
+    cout << "Please select note for edit (1-" << notes.size() << "): ";
+    cin >> editnote;
+    cin.ignore();
+
+
+    if(editnote >= 1 && editnote <= notes.size()){
+        
+        string oldNote = notes[editnote - 1];
+
+        cout << oldNote;
+
+        string newNote = oldNote;
+        char ch;
+
+        while ((ch = _getch()) != 13){
+
+            if(ch == 8){
+                if(!newNote.empty()){
+                    newNote.pop_back();
+
+                    cout << "\b \b"; 
+                }
+            }else if (ch >= 32 && ch <= 126) { 
+                newNote.push_back(ch); 
+                cout << ch;           
+            }
+        }
+        
+
+        cout << endl; 
+        notes[editnote - 1] = newNote;
+        cout << "Note updated successfully!\n";
+
+
+    }else{
+        cout << "Invalid note number!\n";
     }
 
 
