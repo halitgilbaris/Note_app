@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
 #include <conio.h>
 #include <vector>
+#include <limits>
 
 #include "note.h"
 
@@ -15,10 +15,10 @@ void add_note(vector<string> &notes){
 
     cout << "Please enter note!\n";
 
-    cin.ignore();
+    cin.ignore((numeric_limits<streamsize>::max()), '\n');
     getline(cin, note);
 
-    notes.push_back(note);
+    notes.push_back(move(note));
     cout << "Note saved!\n";
 
 }
@@ -39,7 +39,7 @@ void view_note(const vector<string> &notes){
 
     int number = 1;
 
-    for(auto& note : notes){
+    for(const auto& note : notes){
         cout << number << ")\n";
         cout << note << "\n";
         number++;
@@ -61,10 +61,20 @@ void delete_note(vector<string> &notes){
     int deletenote;
 
     cout << "Please select note for delete (1-" << notes.size() << "): ";
-    cin >> deletenote;
+    
+    if(!(cin >> deletenote)){
+        cout << "Please enter a valid number!\n";
+        cin.clear();
+        cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+        return;
+    }
+
+
+
 
     if(deletenote >= 1 && deletenote <= notes.size()){
         notes.erase(notes.begin() + (deletenote - 1));
+        cout << "Note deleted successfully!\n\n";
     }else{
         cout << "Invaild note number!\n";
     }
@@ -99,8 +109,10 @@ void edit_note(vector<string> &notes){
         string newNote = oldNote;
         char ch;
 
+        //13 = Enter
         while ((ch = _getch()) != 13){
 
+            //Backspace
             if(ch == 8){
                 if(!newNote.empty()){
                     newNote.pop_back();
@@ -115,7 +127,7 @@ void edit_note(vector<string> &notes){
         
 
         cout << endl; 
-        notes[editnote - 1] = newNote;
+        notes[editnote - 1] = move(newNote);
         cout << "Note updated successfully!\n";
 
 
