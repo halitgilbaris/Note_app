@@ -51,7 +51,8 @@ int main(){
         cout << "\n-----MENU-----\n";
         cout << "1-Add Note\n";
         cout << "2-View Notes\n";
-        cout << "3-Exit\n";
+        cout << "3-Delete Note\n";
+        cout << "4-Exit\n";
         cout << "Your choice: ";
         
         if (!(cin >> choice)) {
@@ -66,6 +67,8 @@ int main(){
         }else if(choice == 2){
             view_note(notes);
         }else if(choice == 3){
+            delete_note(notes);
+        }else if(choice == 4){
             isRunning = false;
         }else{
             cout << "Inviald choice\n";

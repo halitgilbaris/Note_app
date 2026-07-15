@@ -44,3 +44,28 @@ void view_note(const vector<string> &notes){
     
     
 }
+
+
+
+
+
+void delete_note(vector<string> &notes){
+
+    if(notes.empty()){
+        cout << "No notes available to delete!" << endl;
+        return;
+    }
+
+    int deletenote;
+
+    cout << "Please select note for delete (1-" << notes.size() << "): ";
+    cin >> deletenote;
+
+    if(deletenote >= 1 && deletenote <= notes.size()){
+        notes.erase(notes.begin() + (deletenote - 1));
+    }else{
+        cout << "Invaild note number!\n";
+    }
+
+
+}

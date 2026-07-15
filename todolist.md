@@ -3,7 +3,7 @@ Sprint 1 — Temel İşlevler (Bitirmen Gerekenler)
 ✅ Menü
 ✅ Not ekleme
 ✅ Notları görüntüleme
-⬜ Not silme
+✅ Not silme
 ⬜ Not düzenleme
 ⬜ Çıkış
 ⬜ Hatalı giriş kontrolü
