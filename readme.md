@@ -1,0 +1,67 @@
+# 📝 Note_App v0.3.4
+
+C++ ile geliştirilmiş, tamamen terminal (komut satırı) üzerinden çalışan, hızlı ve pratik bir not alma uygulamasıdır. Kullanıcıların yerel bilgisayarlarında kolayca not tutmasını, düzenlemesini ve yönetmesini sağlar.
+
+## 🚀 Uygulama Özellikleri (Tamamlananlar)
+Uygulama şu anda stabil olarak çalışmaktadır ve şu özellikleri barındırır:
+* ➕ **Not Ekleme:** Yeni notlarınızı hızlıca sisteme kaydedin.
+* 👁️ **Notları Görüntüleme:** Eklediğiniz tüm notları listeleyin.
+* ❌ **Not Silme:** İhtiyacınız kalmayan notları güvenle kaldırın.
+* ✏️ **Not Düzenleme:** Mevcut notlarınızın içeriğini güncelleyin.
+* 🛡️ **Hatalı Giriş Kontrolü:** Menüde yanlış bir tuşa basıldığında uygulamanın çökmesini engelleyen güvenli kontrol sistemi.
+* 🚪 **Çıkış:** Uygulamadan güvenli çıkış yapma seçeneği.
+
+## 📂 Proje Yapısı
+* `src/` - Kaynak kodları (.cpp ve .h dosyaları)
+* `CMakeLists.txt` - Projenin derleme ve bağımlılık ayarları
+* `README.md` - Proje açıklama ve kullanım kılavuzu
+
+## ⚙️ Lisans ve Telif Hakkı
+* **Telif Hakkı:** Copyright (c) 2026 bhalitgil
+* **Lisans:** Licensed under MIT / GPLv3 / Apache 2.0
+
+## 🛠️ Terminalden Derleme ve Çalıştırma (Build)
+
+Uygulamayı kaynak kodundan derlemek için terminali açıp proje ana klasörüne gidin ve işletim sisteminize uygun olan adımları takip edin:
+
+### 🪟 Windows İçin (Terminal / PowerShell)
+Windows üzerinde terminalden derleme yapmak için bilgisayarınızda **CMake** ve **MinGW (g++)** kurulu olmalıdır.
+
+```bash
+# 1. Derleme klasörü oluşturun ve içine girin
+mkdir build
+cd build
+
+# 2. CMake ile Windows (MinGW) ayarlarını yapın
+cmake -G "MinGW Makefiles" ..
+
+# 3. Projeyi derleyin
+cmake --build .
+
+# 4. Uygulamayı çalıştırın
+.\Note_App.exe
+```
+
+### 🐧 Linux İçin (Terminal)
+Linux üzerinde derleme yapmak için bilgisayarınızda `cmake`, `make` ve `g++` paketlerinin kurulu olması gerekir (`sudo apt install build-essential cmake`).
+
+```bash
+# 1. Derleme klasörü oluşturun ve içine girin
+mkdir build
+cd build
+
+# 2. CMake ayarlarını yapın
+cmake ..
+
+# 3. Projeyi derleyin
+cmake --build .
+
+# 4. Uygulamayı çalıştırın
+./Note_App
+```
+
+## 📥 Doğrudan Çalıştırma (.exe)
+Kod derlemekle uğraşmak istemiyorsanız, web sitemiz üzerindeki bağlantıdan doğrudan derlenmiş **Note_App.exe** dosyasını indirip çift tıklayarak terminal arayüzünü kullanmaya başlayabilirsiniz.
+
+## ✉️ İletişim ve Geri Bildirim
+Uygulama hakkında sorularınız veya hata bildirimleriniz için web sitemizdeki buton üzerinden veya doğrudan **bhalitgil250708@gmail.com** adresinden bana ulaşabilirsiniz.
