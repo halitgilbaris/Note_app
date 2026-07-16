@@ -10,21 +10,21 @@
 #include <windows.h>
 #endif
 
-using namespace std;
 
-vector<string> notes;
+
+std::vector<std::string> notes;
 
 void header(){
-    cout << "===============================================\n"
-         << "Note_app v0.3.6 - Telif Hakki (c) 2026\n"
+    std::cout << "===============================================\n"
+         << "Note_app v0.4.6 - Telif Hakki (c) 2026\n"
          << "Licensed under MIT / GPLv3 / Apache 2.0\n"
          << "===============================================\n\n";
     
-    this_thread::sleep_for(chrono::seconds(3));
+    std::this_thread::sleep_for(std::chrono::seconds(3));
 
-    cout << "====================\n"
+    std::cout << "====================\n"
          << "      Note_App      \n"
-         << "       v0.3.6       \n"
+         << "       v0.4.6       \n"
          << "===================\n\n";
 }
 
@@ -38,46 +38,47 @@ int main(){
 
     header();
 
-    cout << "Initializing";
+    std::cout << "Initializing";
     for(int i = 0; i < 3; i++) {
-        this_thread::sleep_for(chrono::seconds(1));
-        cout << ".";
-        cout << flush;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << ".";
+        std::cout << std::flush;
     }
-    cout << "\n";
+    std::cout << "\n";
 
-    this_thread::sleep_for(chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    cout << "Loading";
+    std::cout << "Loading";
     for(int i = 0; i < 3; i++) {
-        this_thread::sleep_for(chrono::seconds(1));
-        cout << ".";
-        cout << flush;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << ".";
+        std::cout << std::flush;
     }
-    cout << "\n\n";
+    std::cout << "\n\n";
     
-    cout << "WELCOME!\n";
+    std::cout << "WELCOME!\n";
 
     bool isRunning = true;
     int choice;
 
     while (isRunning){
-        cout << "\n-----MENU-----\n"
+        std::cout << "\n-----MENU-----\n"
              << "1-Add Note\n"
              << "2-View Notes\n"
              << "3-Delete Note\n"
-             << "4-Edit Note\n"    
-             << "5-Exit\n"
+             << "4-Edit Note\n" 
+             << "5-Create txt\n"   
+             << "6-Exit\n"
              << "Your choice: ";
         
-        if (!(cin >> choice)) {
-            cout << "Please only number!\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        if (!(std::cin >> choice)) {
+            std::cout << "Please only number!\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         switch (choice) {
             case 1:
@@ -93,13 +94,16 @@ int main(){
                 edit_note(notes);
                 break;
             case 5:
+                create_txt(notes);
+                break;
+            case 6:
                 isRunning = false;
                 break;
             default:
-                cout << "Invalid choice!\n";
+                std::cout << "Invalid choice!\n";
                 break;
         }
     }
-    cout << "Exiting... Goodbye!\n";
+    std::cout << "Exiting... Goodbye!\n";
     return 0;
 }

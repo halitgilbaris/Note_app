@@ -3,23 +3,24 @@
 #include <conio.h>
 #include <vector>
 #include <limits>
+#include <fstream>
+#include <cstdlib>
 
 #include "note.h"
 
-using namespace std;
 
 
 
-void add_note(vector<string> &notes){
-    string note;
 
-    cout << "Please enter note!\n";
+void add_note(std::vector<std::string> &notes){
+    std::string note;
 
-    cin.ignore((numeric_limits<streamsize>::max()), '\n');
-    getline(cin, note);
+    std::cout << "Please enter note!\n";
 
-    notes.push_back(move(note));
-    cout << "Note saved!\n";
+    std::getline(std::cin, note);
+
+    notes.push_back(std::move(note));
+    std::cout << "Note saved!\n";
 
 }
 
@@ -29,10 +30,10 @@ void add_note(vector<string> &notes){
 
 
 
-void view_note(const vector<string> &notes){
+void view_note(const std::vector<std::string> &notes){
 
     if(notes.empty()){
-        cout << "No notes found!\n\n";
+        std::cout << "No notes found!\n\n";
         return;
     }
 
@@ -40,8 +41,8 @@ void view_note(const vector<string> &notes){
     int number = 1;
 
     for(const auto& note : notes){
-        cout << number << ")\n";
-        cout << note << "\n";
+        std::cout << number << ")\n";
+        std::cout << note << "\n";
         number++;
     }
     
@@ -51,21 +52,21 @@ void view_note(const vector<string> &notes){
 
 
 
-void delete_note(vector<string> &notes){
+void delete_note(std::vector<std::string> &notes){
 
     if(notes.empty()){
-        cout << "No notes available to delete!\n";
+        std::cout << "No notes available to delete!\n";
         return;
     }
 
     int deletenote;
 
-    cout << "Please select note for delete (1-" << notes.size() << "): ";
+    std::cout << "Please select note for delete (1-" << notes.size() << "): ";
     
-    if(!(cin >> deletenote)){
-        cout << "Please enter a valid number!\n";
-        cin.clear();
-        cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+    if(!(std::cin >> deletenote)){
+        std::cout << "Please enter a valid number!\n";
+        std::cin.clear();
+        std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
         return;
     }
 
@@ -74,9 +75,9 @@ void delete_note(vector<string> &notes){
 
     if(deletenote >= 1 && deletenote <= notes.size()){
         notes.erase(notes.begin() + (deletenote - 1));
-        cout << "Note deleted successfully!\n\n";
+        std::cout << "Note deleted successfully!\n\n";
     }else{
-        cout << "Invaild note number!\n";
+        std::cout << "Invaild note number!\n";
     }
 
 
@@ -86,27 +87,27 @@ void delete_note(vector<string> &notes){
 
 
 
-void edit_note(vector<string> &notes){
+void edit_note(std::vector<std::string> &notes){
 
     if(notes.empty()){
-        cout << "No notes avaiable to edit!\n";
+        std::cout << "No notes avaiable to edit!\n";
         return;
     }
     
     int editnote;
 
-    cout << "Please select note for edit (1-" << notes.size() << "): ";
-    cin >> editnote;
-    cin.ignore();
+    std::cout << "Please select note for edit (1-" << notes.size() << "): ";
+    std::cin >> editnote;
+    std::cin.ignore();
 
 
     if(editnote >= 1 && editnote <= notes.size()){
         
-        string oldNote = notes[editnote - 1];
+        std::string oldNote = notes[editnote - 1];
 
-        cout << oldNote;
+        std::cout << oldNote;
 
-        string newNote = oldNote;
+        std::string newNote = oldNote;
         char ch;
 
         //13 = Enter
@@ -117,23 +118,59 @@ void edit_note(vector<string> &notes){
                 if(!newNote.empty()){
                     newNote.pop_back();
 
-                    cout << "\b \b"; 
+                    std::cout << "\b \b"; 
                 }
             }else if (ch >= 32 && ch <= 126) { 
                 newNote.push_back(ch); 
-                cout << ch;           
+                std::cout << ch;           
             }
         }
         
 
-        cout << endl; 
-        notes[editnote - 1] = move(newNote);
-        cout << "Note updated successfully!\n";
+        std::cout << std::endl; 
+        notes[editnote - 1] = std::move(newNote);
+        std::cout << "Note updated successfully!\n";
 
 
     }else{
-        cout << "Invalid note number!\n";
+        std::cout << "Invalid note number!\n";
     }
 
 
+}
+
+
+
+
+void create_txt(const std::vector<std::string> &notes){
+
+    static int i = 1;
+    int createnot;
+    
+    std::cout << "Please select note for edit (1-" << notes.size() << "): ";
+        std::cin >> createnot;
+        std::cin.ignore();
+
+    if(createnot >= 1 && createnot <= notes.size()){
+
+        const char* userProfile = std::getenv("USERPROFILE");
+        if (!userProfile) {
+            std::cout << "Error: Could not find user profile!\n";
+            return;
+        }
+
+        std::string desktopPath = std::string(userProfile) + "\\Desktop\\" + std::to_string(i) +" not.txt";
+
+        std::ofstream file(desktopPath);
+
+        if(file.is_open()){
+            file << notes[createnot - 1] << "\n";
+
+            file.close();
+            std::cout << "Notes saved to Desktop successfully!\n";
+            i++;
+        }else{
+            std::cout << "Error: Could not create the file on Desktop!\n";
+        }
+    }
 }
