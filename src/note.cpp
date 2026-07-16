@@ -5,9 +5,10 @@
 #include <limits>
 #include <fstream>
 #include <cstdlib>
+#include <filesystem>
 
 #include "note.h"
-
+#include "folder.h"
 
 
 
@@ -174,3 +175,5 @@ void create_txt(const std::vector<std::string> &notes){
         }
     }
 }
+
+
