@@ -1,4 +1,4 @@
-# 📝 Note_App v0.5.0-alpha
+# 📝 Note_App v0.6.0-alpha
 
 C++ ile geliştirilmiş, tamamen terminal (komut satırı) üzerinden çalışan, hızlı ve pratik bir not alma uygulamasıdır. Kullanıcıların yerel bilgisayarlarında kolayca not tutmasını, düzenlemesini ve yönetmesini sağlar.
 
@@ -11,12 +11,19 @@ Uygulama şu anda stabil olarak çalışmaktadır ve şu özellikleri barındır
 * 💾 Masaüstüne Aktarma: Seçtiğiniz bir notu doğrudan bilgisayarınızın masaüstüne .txt dosyası olarak kaydedin.
 * 🚪 Çıkış ve Otomatik Kaydetme: Uygulamadan güvenli çıkış yapma seçeneği; program kapatılırken tüm verileriniz çökme riski olmadan otomatik olarak kaydedilir.
 * 🛡️ **Hatalı Giriş Kontrolü:** Menüde yanlış bir tuşa basıldığında uygulamanın çökmesini engelleyen güvenli kontrol sistemi.
+* 🔄 Geri Yükleme ve Okuma: Kaydedilen .txt dosyalarını otomatik olarak okuyarak verilerinizi uygulamada tekrar çalıştırın.
 * 🚪 **Çıkış:** Uygulamadan güvenli çıkış yapma seçeneği.
 
 ## 📂 Proje Yapısı
 * `src/` - Kaynak kodları (.cpp ve .h dosyaları)
 * `CMakeLists.txt` - Projenin derleme ve bağımlılık ayarları
 * `README.md` - Proje açıklama ve kullanım kılavuzu
+
+## 🤖 AI Collaboration / Yapay Zeka Kullanımı
+I used an AI assistant as a pair programmer and learning tool during this project. 
+It helped me understand complex C++ concepts, debug code, and optimize structural logic while building my foundational skills.
+
+*Bu projeyi geliştirirken C++ kavramlarını daha iyi anlamak, hataları çözmek ve mantıksal yapıyı kurmak adına bir yapay zeka asistanından destek aldım.
 
 ## ⚙️ Lisans ve Telif Hakkı
 * **Telif Hakkı:** Copyright (c) 2026 bhalitgil

@@ -6,6 +6,7 @@
 #include <vector>
 #include <windows.h>
 #include <direct.h> 
+#include <thread>
 
 #include "folder.h"
 #include "note.h"
@@ -26,7 +27,7 @@ void file_save(const std::vector<std::string> &notes){
     std::string folderPath = std::string(userProfile) + "\\Note_app";
 
     #ifdef _WIN32
-    _mkdir(folderPath.c_str()); // Klasör varsa hiçbir şey yapmaz, yoksa hata vermeden açar
+    _mkdir(folderPath.c_str());
     #endif
 
 
@@ -55,4 +56,45 @@ BOOL WINAPI ConsoleHandler(DWORD signal){
         return TRUE; 
     }
     return FALSE;
+}
+
+
+
+
+void load_file(std::vector<std::string> &notes){
+
+    g_save_finished = false;
+
+
+    const char* userProfile = getenv("USERPROFILE");
+    if(!userProfile){
+        g_save_finished = true;
+        return;
+    }
+
+    std::string saveSystem = std::string(userProfile) + "//Note_app//saves.txt";
+    std::ifstream loadFile(saveSystem);
+
+    if(loadFile.is_open()){
+        std::string line;
+        notes.clear();
+
+        while(std::getline(loadFile, line)){
+
+            size_t pos = line.find(") ");
+
+            if(pos != std::string::npos){
+                std::string pure_note = line.substr(pos + 2);
+
+                if(!pure_note.empty()){
+                    notes.push_back(pure_note);
+                }
+            }
+
+        }
+        loadFile.close();
+    }
+    g_save_finished = true;
+
+
 }

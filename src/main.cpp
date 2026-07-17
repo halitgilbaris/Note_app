@@ -4,6 +4,7 @@
 #include <thread>
 #include <limits>
 #include <windows.h>
+#include <thread>
 
 #include "note.h"
 #include "folder.h"
@@ -16,12 +17,13 @@
 
 std::vector<std::string> notes;
 volatile bool g_running = true;
+volatile bool g_save_finished = false;
 
 
 
 void header(){
     std::cout << "===============================================\n"
-         << "Note_app v0.5.0-alpha - Telif Hakki (c) 2026\n"
+         << "Note_app v0.6.0-alpha - Telif Hakki (c) 2026\n"
          << "Licensed under MIT / GPLv3 / Apache 2.0\n"
          << "===============================================\n\n";
     
@@ -29,11 +31,13 @@ void header(){
 
     std::cout << "====================\n"
          << "      Note_App      \n"
-         << "     v0.5.0-alpha       \n"
+         << "     v0.6.0-alpha       \n"
          << "===================\n\n";
 }
 
 int main(){
+
+
 
     if (!SetConsoleCtrlHandler(ConsoleHandler, TRUE)) {
         std::cout << "Kapatma dinleyicisi baslatilamadi!\n";
@@ -49,15 +53,10 @@ int main(){
 
     header();
 
-    std::cout << "Initializing";
-    for(int i = 0; i < 3; i++) {
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << ".";
-        std::cout << std::flush;
-    }
-    std::cout << "\n";
-
     std::this_thread::sleep_for(std::chrono::seconds(1));
+
+    std::thread yukleme_thread(load_file, std::ref(notes));
+    yukleme_thread.detach();
 
     std::cout << "Loading";
     for(int i = 0; i < 3; i++) {

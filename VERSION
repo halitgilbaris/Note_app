@@ -15,3 +15,5 @@ v0.3.6    //Technical regulations
 v0.4.6    //Copying notes to the desktop has been added.
 
 v0.5.0-alpha //Automatic saving has been added when the application closes.
+
+v0.6.0-alpha //Reading the file inside was added.
