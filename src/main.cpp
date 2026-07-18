@@ -3,15 +3,14 @@
 #include <chrono>
 #include <thread>
 #include <limits>
-#include <windows.h>
-#include <thread>
-
-#include "note.h"
-#include "folder.h"
 
 #ifdef _WIN32
 #include <windows.h>
 #endif
+
+#include "note.h"
+#include "folder.h"
+
 
 
 
@@ -19,30 +18,31 @@ std::vector<std::string> notes;
 volatile bool g_running = true;
 volatile bool g_save_finished = false;
 
+std::string note;
 
 
 void header(){
     std::cout << "===============================================\n"
-         << "Note_app v0.6.0-alpha - Telif Hakki (c) 2026\n"
-         << "Licensed under MIT / GPLv3 / Apache 2.0\n"
-         << "===============================================\n\n";
+        << "Note_app v0.6.1-alpha - Telif Hakki (c) 2026\n"
+        << "Licensed under MIT / GPLv3 / Apache 2.0\n"
+        << "===============================================\n\n";
     
     std::this_thread::sleep_for(std::chrono::seconds(3));
 
     std::cout << "====================\n"
-         << "      Note_App      \n"
-         << "     v0.6.0-alpha       \n"
-         << "===================\n\n";
+        << "      Note_App      \n"
+        << "     v0.6.1-alpha       \n"
+        << "===================\n\n";
 }
 
 int main(){
 
-
-
+    #ifdef _WIN32
     if (!SetConsoleCtrlHandler(ConsoleHandler, TRUE)) {
         std::cout << "Kapatma dinleyicisi baslatilamadi!\n";
         return 1;
     }
+    #endif
 
     #ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8);
@@ -73,13 +73,13 @@ int main(){
 
     while (g_running){
         std::cout << "\n-----MENU-----\n"
-             << "1-Add Note\n"
-             << "2-View Notes\n"
-             << "3-Delete Note\n"
-             << "4-Edit Note\n" 
-             << "5-Create txt\n"   
-             << "6-Exit\n"
-             << "Your choice: ";
+            << "1-Add Note\n"
+            << "2-View Notes\n"
+            << "3-Delete Note\n"
+            << "4-Edit Note\n" 
+            << "5-Create txt\n"   
+            << "6-Exit\n"
+            << "Your choice: ";
         
         if (!(std::cin >> choice)) {
             std::cout << "Please only number!\n";

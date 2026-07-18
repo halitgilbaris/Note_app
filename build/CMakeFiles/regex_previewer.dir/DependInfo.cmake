@@ -8,10 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp" "CMakeFiles/Note_app.dir/src/folder.cpp.o" "gcc" "CMakeFiles/Note_app.dir/src/folder.cpp.o.d"
-  "/home/baris/Desktop/PROJELER/C++/Note_app/src/main.cpp" "CMakeFiles/Note_app.dir/src/main.cpp.o" "gcc" "CMakeFiles/Note_app.dir/src/main.cpp.o.d"
-  "/home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp" "CMakeFiles/Note_app.dir/src/note.cpp.o" "gcc" "CMakeFiles/Note_app.dir/src/note.cpp.o.d"
-  "" "Note_app" "gcc" "CMakeFiles/Note_app.dir/link.d"
+  "/home/baris/Desktop/PROJELER/C++/Note_app/src/regex_previewer.cpp" "CMakeFiles/regex_previewer.dir/src/regex_previewer.cpp.o" "gcc" "CMakeFiles/regex_previewer.dir/src/regex_previewer.cpp.o.d"
+  "" "regex_previewer" "gcc" "CMakeFiles/regex_previewer.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

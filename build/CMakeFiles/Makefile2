@@ -85,12 +85,12 @@ clean: CMakeFiles/Note_app.dir/clean
 CMakeFiles/Note_app.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=1,2,3 "Built target Note_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=1,2,3,4 "Built target Note_app"
 .PHONY : CMakeFiles/Note_app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Note_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Note_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles 0
 .PHONY : CMakeFiles/Note_app.dir/rule
@@ -102,7 +102,7 @@ Note_app: CMakeFiles/Note_app.dir/rule
 # codegen rule for target.
 CMakeFiles/Note_app.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target Note_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target Note_app"
 .PHONY : CMakeFiles/Note_app.dir/codegen
 
 # clean rule for target.

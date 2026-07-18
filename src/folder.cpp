@@ -4,15 +4,17 @@
 #include <filesystem>
 #include <fstream>
 #include <vector>
+#include <thread>
+
+#ifdef _WIN32
 #include <windows.h>
 #include <direct.h> 
-#include <thread>
+#endif
 
 #include "folder.h"
 #include "note.h"
 
-#ifdef _WIN32
-#endif
+
 
 extern std::vector<std::string> notes;
 extern volatile bool g_running;
@@ -48,6 +50,7 @@ void file_save(const std::vector<std::string> &notes){
 
 }
 
+#ifdef _WIN32
 BOOL WINAPI ConsoleHandler(DWORD signal){
     if (signal == CTRL_CLOSE_EVENT) { 
         g_running = false; 
@@ -57,6 +60,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal){
     }
     return FALSE;
 }
+#endif
 
 
 
@@ -72,8 +76,15 @@ void load_file(std::vector<std::string> &notes){
         return;
     }
 
-    std::string saveSystem = std::string(userProfile) + "//Note_app//saves.txt";
+    std::string saveSystem = std::string(userProfile) + "\\Note_app\\saves.txt";
     std::ifstream loadFile(saveSystem);
+
+    if(!loadFile.is_open()){
+        std::cerr << "Error: Could not open the save file!\n";
+        g_save_finished = true;
+        return;
+    }
+
 
     if(loadFile.is_open()){
         std::string line;
@@ -91,6 +102,9 @@ void load_file(std::vector<std::string> &notes){
                 }
             }
 
+        }
+        if(loadFile.bad()){
+            std::cerr << "Error: An error occurred while reading the save file!\n";
         }
         loadFile.close();
     }

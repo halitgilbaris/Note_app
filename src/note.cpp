@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
-#include <conio.h>
 #include <vector>
 #include <limits>
 #include <fstream>
 #include <cstdlib>
 #include <filesystem>
+
+#ifdef _WIN32
+#include <conio.h>
+#endif
 
 #include "note.h"
 #include "folder.h"
@@ -87,7 +90,6 @@ void delete_note(std::vector<std::string> &notes){
 
 
 
-
 void edit_note(std::vector<std::string> &notes){
 
     if(notes.empty()){
@@ -112,6 +114,7 @@ void edit_note(std::vector<std::string> &notes){
         char ch;
 
         //13 = Enter
+        #ifdef _WIN32
         while ((ch = _getch()) != 13){
 
             //Backspace
@@ -126,6 +129,7 @@ void edit_note(std::vector<std::string> &notes){
                 std::cout << ch;           
             }
         }
+        #endif
         
 
         std::cout << std::endl; 

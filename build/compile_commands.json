@@ -10,5 +10,11 @@
   "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/note.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp",
   "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp",
   "output": "CMakeFiles/Note_app.dir/src/note.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/folder.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/folder.cpp.o"
 }
 ]

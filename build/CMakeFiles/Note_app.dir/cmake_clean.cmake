@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Note_app.dir/link.d"
+  "CMakeFiles/Note_app.dir/src/folder.cpp.o"
+  "CMakeFiles/Note_app.dir/src/folder.cpp.o.d"
   "CMakeFiles/Note_app.dir/src/main.cpp.o"
   "CMakeFiles/Note_app.dir/src/main.cpp.o.d"
   "CMakeFiles/Note_app.dir/src/note.cpp.o"

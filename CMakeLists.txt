@@ -9,4 +9,5 @@ include_directories(include)
 add_executable(Note_app
     src/main.cpp
     src/note.cpp
+    src/folder.cpp
 )

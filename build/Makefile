@@ -129,6 +129,30 @@ Note_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/build
 .PHONY : Note_app/fast
 
+src/folder.o: src/folder.cpp.o
+.PHONY : src/folder.o
+
+# target to build an object file
+src/folder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/src/folder.cpp.o
+.PHONY : src/folder.cpp.o
+
+src/folder.i: src/folder.cpp.i
+.PHONY : src/folder.i
+
+# target to preprocess a source file
+src/folder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/src/folder.cpp.i
+.PHONY : src/folder.cpp.i
+
+src/folder.s: src/folder.cpp.s
+.PHONY : src/folder.s
+
+# target to generate assembly for a file
+src/folder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Note_app.dir/build.make CMakeFiles/Note_app.dir/src/folder.cpp.s
+.PHONY : src/folder.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Note_app"
+	@echo "... src/folder.o"
+	@echo "... src/folder.i"
+	@echo "... src/folder.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
