@@ -3,6 +3,8 @@
 #include <chrono>
 #include <thread>
 #include <limits>
+#include <atomic>
+#include <string>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -11,19 +13,19 @@
 #include "note.h"
 #include "folder.h"
 
-
-
-
-std::vector<std::string> notes;
-volatile bool g_running = true;
-volatile bool g_save_finished = false;
+std::vector<Note> notes;
+std::atomic<bool> g_running(true);       
+std::atomic<bool> g_save_finished(false);
 
 std::string note;
 
+#ifdef _WIN32
+BOOL WINAPI ConsoleHandler(DWORD signal);
+#endif
 
 void header(){
     std::cout << "===============================================\n"
-        << "Note_app v0.6.1-alpha - Telif Hakki (c) 2026\n"
+        << "Note_app v0.7.0-beta - Telif Hakki (c) 2026\n"
         << "Licensed under MIT / GPLv3 / Apache 2.0\n"
         << "===============================================\n\n";
     
@@ -31,28 +33,22 @@ void header(){
 
     std::cout << "====================\n"
         << "      Note_App      \n"
-        << "     v0.6.1-alpha       \n"
+        << "     v0.7.0-beta       \n"
         << "===================\n\n";
 }
 
 int main(){
-
     #ifdef _WIN32
     if (!SetConsoleCtrlHandler(ConsoleHandler, TRUE)) {
         std::cout << "Kapatma dinleyicisi baslatilamadi!\n";
         return 1;
     }
-    #endif
-
-    #ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     #endif
 
     notes.reserve(100);
-
     header();
-
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
     std::thread yukleme_thread(load_file, std::ref(notes));
@@ -67,11 +63,17 @@ int main(){
     std::cout << "\n\n";
     
     std::cout << "WELCOME!\n";
-
+    note_class noteClass;
     int choice;
 
-
     while (g_running){
+
+        #ifdef _WIN32
+            std::system("cls");
+        #else
+            std::system("clear");
+        #endif
+
         std::cout << "\n-----MENU-----\n"
             << "1-Add Note\n"
             << "2-View Notes\n"
@@ -92,31 +94,36 @@ int main(){
 
         switch (choice) {
             case 1:
-                add_note(notes); 
+                noteClass.add_note(notes);
                 break;
             case 2:
-                view_note(notes);
+                noteClass.view_note(notes);
+                std::cout << "\nPress Enter to return to menu...";
+                std::cin.get(); 
                 break;
             case 3:
-                delete_note(notes);
+                noteClass.delete_note(notes);
+                std::this_thread::sleep_for(std::chrono::seconds(2));
                 break;
             case 4:
-                edit_note(notes);
+                noteClass.edit_note(notes);
+                std::this_thread::sleep_for(std::chrono::seconds(2));
                 break;
             case 5:
-                create_txt(notes);
+                noteClass.create_txt(notes);
+                std::this_thread::sleep_for(std::chrono::seconds(2));
                 break;
             case 6:
                 g_running = false;
                 break;
             default:
                 std::cout << "Invalid choice!\n";
+                std::this_thread::sleep_for(std::chrono::seconds(2));
                 break;
         }
     }
 
     file_save(notes);
-
     std::cout << "Exiting... Goodbye!\n";
     std::this_thread::sleep_for(std::chrono::milliseconds(800)); 
     return 0;

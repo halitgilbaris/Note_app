@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <thread>
+#include <atomic>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -14,15 +15,12 @@
 #include "folder.h"
 #include "note.h"
 
+// main.cpp içindeki global değişkenlere erişim
+extern std::vector<Note> notes;
+extern std::atomic<bool> g_running;
+extern std::atomic<bool> g_save_finished; 
 
-
-extern std::vector<std::string> notes;
-extern volatile bool g_running;
-extern volatile bool g_save_finished; 
-
-
-void file_save(const std::vector<std::string> &notes){
-
+void file_save(const std::vector<Note> &notes){
     const char* userProfile = std::getenv("USERPROFILE");
     if(!userProfile) return;
 
@@ -32,29 +30,26 @@ void file_save(const std::vector<std::string> &notes){
     _mkdir(folderPath.c_str());
     #endif
 
-
     std::string saveSystem = folderPath + "\\saves.txt";
     std::ofstream savefile(saveSystem);
 
-    int i = 1;
-
     if(savefile.is_open()){
-        for(auto& x : notes){
-            savefile << i << ") " << x << "\n";
-            i++;
+        for(const auto& x : notes){
+            savefile << x.id << "|||" 
+                    << x.title << "|||" 
+                    << x.content << "|||" 
+                    << x.createdAt << "\n";
         }
-    savefile.close();
-    }else{
-        return;
+        savefile.close();
     }
-
 }
 
+// Uygulama penceresi kapatıldığında tetiklenen fonksiyon
 #ifdef _WIN32
 BOOL WINAPI ConsoleHandler(DWORD signal){
-    if (signal == CTRL_CLOSE_EVENT) { 
+    if (signal == CTRL_CLOSE_EVENT || signal == CTRL_C_EVENT) { 
         g_running = false; 
-        file_save(notes);
+        file_save(notes); // Kapatılırken notları diske kaydeder
         ExitProcess(0);   
         return TRUE; 
     }
@@ -62,13 +57,8 @@ BOOL WINAPI ConsoleHandler(DWORD signal){
 }
 #endif
 
-
-
-
-void load_file(std::vector<std::string> &notes){
-
+void load_file(std::vector<Note> &notes){
     g_save_finished = false;
-
 
     const char* userProfile = getenv("USERPROFILE");
     if(!userProfile){
@@ -85,30 +75,35 @@ void load_file(std::vector<std::string> &notes){
         return;
     }
 
+    std::string line;
+    notes.clear();
 
-    if(loadFile.is_open()){
-        std::string line;
-        notes.clear();
+    while(std::getline(loadFile, line)){
+        std::vector<std::string> tokens;
+        size_t pos = 0;
+        std::string token;
+        std::string delimiter = "|||";
 
-        while(std::getline(loadFile, line)){
-
-            size_t pos = line.find(") ");
-
-            if(pos != std::string::npos){
-                std::string pure_note = line.substr(pos + 2);
-
-                if(!pure_note.empty()){
-                    notes.push_back(pure_note);
-                }
-            }
-
+        while ((pos = line.find(delimiter)) != std::string::npos) {
+            token = line.substr(0, pos);
+            tokens.push_back(token);
+            line.erase(0, pos + delimiter.length());
         }
-        if(loadFile.bad()){
-            std::cerr << "Error: An error occurred while reading the save file!\n";
+        tokens.push_back(line); 
+
+        if(tokens.size() == 4){
+            Note loadedNote;
+            loadedNote.id = std::stoi(tokens[0]);
+            loadedNote.title = tokens[1];
+            loadedNote.content = tokens[2];
+            loadedNote.createdAt = tokens[3];
+            notes.push_back(loadedNote);
         }
-        loadFile.close();
     }
+    
+    if(loadFile.bad()){
+        std::cerr << "Error: An error occurred while reading the save file!\n";
+    }
+    loadFile.close();
     g_save_finished = true;
-
-
 }

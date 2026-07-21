@@ -1,10 +1,22 @@
 #pragma once
-
 #include <vector>
 #include <string>
 
-void add_note(std::vector<std::string> &notes);
-void view_note(const std::vector<std::string> &notes);
-void delete_note(std::vector<std::string> &notes);
-void edit_note(std::vector<std::string> &notes);
-void create_txt(const std::vector<std::string> &notes);
+struct Note {
+    int id;
+    std::string title;
+    std::string content;
+    std::string createdAt;
+};
+
+class note_class {
+private:
+    int i = 1;
+
+public:
+    void add_note(std::vector<Note> &notes);
+    void view_note(const std::vector<Note> &notes);
+    void delete_note(std::vector<Note> &notes);
+    void edit_note(std::vector<Note> &notes);
+    void create_txt(const std::vector<Note> &notes);
+};
