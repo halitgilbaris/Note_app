@@ -23,3 +23,5 @@ v0.6.1-alpha //Error handling has been added when reading the file.
 v0.7.0-beta //ID system, title adding, content adding, date adding have been introduced.
 
 v0.7.1-beta //Technical arrangement
+
+v0.7.2-beta //add gitignore

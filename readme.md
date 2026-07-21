@@ -1,4 +1,4 @@
-# 📝 Note_App v0.7.1-beta
+# 📝 Note_App v0.7.2-beta
 
 C++ ile geliştirilmiş, tamamen terminal (komut satırı) üzerinden çalışan, hızlı ve pratik bir not alma uygulamasıdır. Kullanıcıların yerel bilgisayarlarında kolayca not tutmasını, düzenlemesini ve yönetmesini sağlar.
 
