@@ -1,0 +1,70 @@
+# --- EDITORS & IDEs ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- SYSTEM FILES ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- LOGS & TEMPORARY ---
+*.log
+logs/
+*.tmp
+*.bak
+.cache/
+
+# --- NODE.JS / WEB (React, Vue, Next.js, Angular vb.) ---
+node_modules/
+bower_components/
+dist/
+build/
+.next/
+.nuxt/
+.out/
+
+# --- PYTHON ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+
+# --- JAVA / KOTLIN ---
+*.class
+*.bluej
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+build/
+.gradle/
+
+# --- C++ / C / DEPLOYMENT ---
+*.o
+*.obj
+*.exe
+*.out
+*.app
+bin/
+obj/
+
+# --- ENVIRONMENTS & SECRETS (Şifreler ve Özel Bilgiler) ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
