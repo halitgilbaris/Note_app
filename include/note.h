@@ -19,4 +19,8 @@ public:
     void delete_note(std::vector<Note> &notes);
     void edit_note(std::vector<Note> &notes);
     void create_txt(const std::vector<Note> &notes);
+    void search_note_title(const std::vector<Note> &notes);
+    void search_note_content(const std::vector<Note> &notes);
+    void search_note_createdAt(const std::vector<Note> &notes);
+    void search_menu(const std::vector<Note> &notes);
 };

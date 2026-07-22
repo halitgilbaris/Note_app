@@ -25,7 +25,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal);
 
 void header(){
     std::cout << "===============================================\n"
-        << "Note_app v0.7.2-beta - Telif Hakki (c) 2026\n"
+        << "Note_app v0.7.3-beta - Telif Hakki (c) 2026\n"
         << "Licensed under MIT / GPLv3 / Apache 2.0\n"
         << "===============================================\n\n";
     
@@ -33,7 +33,7 @@ void header(){
 
     std::cout << "====================\n"
         << "      Note_App      \n"
-        << "     v0.7.2-beta       \n"
+        << "     v0.7.3-beta       \n"
         << "===================\n\n";
 }
 
@@ -79,8 +79,9 @@ int main(){
             << "2-View Notes\n"
             << "3-Delete Note\n"
             << "4-Edit Note\n" 
-            << "5-Create txt\n"   
-            << "6-Exit\n"
+            << "5-Create txt\n" 
+            << "6-Search menu\n"  
+            << "7-Exit\n"
             << "Your choice: ";
         
         if (!(std::cin >> choice)) {
@@ -114,6 +115,8 @@ int main(){
                 std::this_thread::sleep_for(std::chrono::seconds(2));
                 break;
             case 6:
+                
+            case 7:
                 g_running = false;
                 break;
             default:

@@ -24,4 +24,6 @@ v0.7.0-beta //ID system, title adding, content adding, date adding have been int
 
 v0.7.1-beta //Technical arrangement
 
-v0.7.2-beta //add gitignore
+v0.7.2-beta //Add gitignore
+
+v0.7.3-beta //Add search system
