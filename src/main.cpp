@@ -115,7 +115,9 @@ int main(){
                 std::this_thread::sleep_for(std::chrono::seconds(2));
                 break;
             case 6:
-                
+                noteClass.search_menu(notes);
+                std::this_thread::sleep_for(std::chrono::seconds(2));
+                break;
             case 7:
                 g_running = false;
                 break;
