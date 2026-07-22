@@ -191,7 +191,6 @@ void note_class::search_note_title(const std::vector<Note> &notes){
 
     for(const auto& titles : notes){
         if(titles.title == search_title){
-            std::cout << "Note found!\n\n";
             std::cout << "---------------------------------------------------\n";
             std::cout << "ID: " << titles.id << "\n";
             std::cout << "Title: " << titles.title << "\n";
@@ -217,7 +216,6 @@ void note_class::search_note_content(const std::vector<Note> &notes){
 
     for(const auto& contents : notes){
         if(contents.title == search_content){
-            std::cout << "Note found!\n\n";
             std::cout << "---------------------------------------------------\n";
             std::cout << "ID: " << contents.id << "\n";
             std::cout << "Title: " << contents.title << "\n";
@@ -235,6 +233,7 @@ void note_class::search_note_content(const std::vector<Note> &notes){
 
 
 
+
 void note_class::search_note_createdAt(const std::vector<Note> &notes){
 
     std::string search_createdAt;
@@ -244,7 +243,6 @@ void note_class::search_note_createdAt(const std::vector<Note> &notes){
 
     for(const auto& createdAts : notes){
         if(createdAts.title == search_createdAt){
-            std::cout << "Note found!\n\n";
             std::cout << "---------------------------------------------------\n";
             std::cout << "ID: " << createdAts.id << "\n";
             std::cout << "Title: " << createdAts.title << "\n";
