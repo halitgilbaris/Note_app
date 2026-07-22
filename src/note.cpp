@@ -286,7 +286,6 @@ void note_class::search_menu(const std::vector<Note> &notes){
         }
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
 
         switch (choice_search_menu)
         {
@@ -313,11 +312,5 @@ void note_class::search_menu(const std::vector<Note> &notes){
             std::this_thread::sleep_for(std::chrono::seconds(2));
             break;
         }
-    
-
-
-    
-
-
-
+    }
 }
