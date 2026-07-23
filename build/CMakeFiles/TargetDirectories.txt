@@ -1,3 +1,0 @@
-/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles/Note_app.dir
-/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles/edit_cache.dir
-/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles/rebuild_cache.dir
