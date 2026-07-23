@@ -32,7 +32,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal);
 
 void header(){
     std::cout << "===============================================\n"
-        << "Note_app v0.7.5-beta - Telif Hakki (c) 2026\n"
+        << "Note_app v0.7.7-beta - Telif Hakki (c) 2026\n"
         << "Licensed under MIT / GPLv3 / Apache 2.0\n"
         << "===============================================\n\n";
     
@@ -40,7 +40,7 @@ void header(){
 
     std::cout << "====================\n"
         << "      Note_App      \n"
-        << "     v0.7.5-beta       \n"
+        << "     v0.7.7-beta       \n"
         << "===================\n\n";
 }
 

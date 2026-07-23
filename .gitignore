@@ -1,5 +1,5 @@
 # --- EDITORS & IDEs ---
-.vscode/
+# NOT: .vscode/ satırı kaldırıldı, artık VS Code ayarların Git tarafından görülebilir.
 .idea/
 *.suo
 *.ntvs*
@@ -19,11 +19,10 @@ logs/
 *.bak
 .cache/
 
-# --- NODE.JS / WEB (React, Vue, Next.js, Angular vb.) ---
+# --- NODE.JS / WEB ---
 node_modules/
 bower_components/
 dist/
-build/
 .next/
 .nuxt/
 .out/
@@ -35,7 +34,6 @@ __pycache__/
 venv/
 .venv/
 env/
-.env
 develop-eggs/
 downloads/
 eggs/
@@ -50,19 +48,18 @@ eggs/
 *.war
 *.nar
 *.ear
-build/
 .gradle/
 
 # --- C++ / C / DEPLOYMENT ---
 *.o
 *.obj
-*.exe
+# NOT: *.exe satırı kaldırıldı, artık program.exe dosyan Git tarafından görülebilir.
 *.out
 *.app
 bin/
 obj/
 
-# --- ENVIRONMENTS & SECRETS (Şifreler ve Özel Bilgiler) ---
+# --- ENVIRONMENTS & SECRETS ---
 .env
 .env.local
 .env.development.local

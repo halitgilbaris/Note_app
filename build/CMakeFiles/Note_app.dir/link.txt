@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wl,--dependency-file=CMakeFiles/Note_app.dir/link.d CMakeFiles/Note_app.dir/src/main.cpp.o CMakeFiles/Note_app.dir/src/note.cpp.o CMakeFiles/Note_app.dir/src/folder.cpp.o -o Note_app
