@@ -7,5 +7,5 @@
 extern std::atomic<bool> g_running;
 extern std::atomic<bool> g_save_finished;
 
-void file_save(const std::vector<Note> &notes);
-void load_file(std::vector<Note> &notes);
+void file_save(const std::vector<Note> &notes, int current_i);
+void load_file(std::vector<Note> &notes, int &current_i);

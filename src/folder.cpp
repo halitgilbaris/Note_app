@@ -15,12 +15,13 @@
 #include "folder.h"
 #include "note.h"
 
-// main.cpp içindeki global değişkenlere erişim
+
 extern std::vector<Note> notes;
 extern std::atomic<bool> g_running;
 extern std::atomic<bool> g_save_finished; 
+extern int g_note_counter; 
 
-void file_save(const std::vector<Note> &notes){
+void file_save(const std::vector<Note> &notes, int current_i){
     const char* userProfile = std::getenv("USERPROFILE");
     if(!userProfile) return;
 
@@ -34,6 +35,9 @@ void file_save(const std::vector<Note> &notes){
     std::ofstream savefile(saveSystem);
 
     if(savefile.is_open()){
+
+        savefile << current_i << "\n";
+
         for(const auto& x : notes){
             savefile << x.id << "|||" 
                     << x.title << "|||" 
@@ -44,12 +48,13 @@ void file_save(const std::vector<Note> &notes){
     }
 }
 
-// Uygulama penceresi kapatıldığında tetiklenen fonksiyon
+
 #ifdef _WIN32
 BOOL WINAPI ConsoleHandler(DWORD signal){
     if (signal == CTRL_CLOSE_EVENT || signal == CTRL_C_EVENT) { 
         g_running = false; 
-        file_save(notes); // Kapatılırken notları diske kaydeder
+
+        file_save(notes, g_note_counter); 
         ExitProcess(0);   
         return TRUE; 
     }
@@ -57,7 +62,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal){
 }
 #endif
 
-void load_file(std::vector<Note> &notes){
+void load_file(std::vector<Note> &notes, int &current_i){
     g_save_finished = false;
 
     const char* userProfile = getenv("USERPROFILE");
@@ -71,12 +76,22 @@ void load_file(std::vector<Note> &notes){
 
     if(!loadFile.is_open()){
         std::cerr << "Error: Could not open the save file!\n";
+        current_i = 0; 
         g_save_finished = true;
         return;
     }
 
     std::string line;
     notes.clear();
+
+    if(std::getline(loadFile, line)){
+        try {
+            current_i = std::stoi(line);
+        } catch (...) {
+            current_i = 0; 
+        }
+    }
+
 
     while(std::getline(loadFile, line)){
         std::vector<std::string> tokens;

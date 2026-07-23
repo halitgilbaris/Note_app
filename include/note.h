@@ -10,9 +10,6 @@ struct Note {
 };
 
 class note_class {
-private:
-    int i = 1;
-
 public:
     void add_note(std::vector<Note> &notes);
     void view_note(const std::vector<Note> &notes);

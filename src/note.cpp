@@ -8,6 +8,7 @@
 #include <chrono>
 #include <thread>
 #include <ctime>
+#include <atomic>
 
 #ifdef _WIN32
 #include <conio.h>
@@ -16,13 +17,19 @@
 #include "note.h"
 #include "folder.h"
 
-
 std::atomic<bool> s_running(true);  
+
+
+extern int g_note_counter;
+
+
 
 
 void note_class::add_note(std::vector<Note> &notes){
     Note newNote;
-    newNote.id = i;
+
+    newNote.id = g_note_counter; 
+    
     std::cout << "Please enter title of note: ";
     std::getline(std::cin, newNote.title);
     std::cout << "Please enter content of notes: ";
@@ -38,7 +45,8 @@ void note_class::add_note(std::vector<Note> &notes){
     
     newNote.createdAt = timeStr;
     notes.push_back(newNote);
-    i++;
+    
+    g_note_counter++; 
 }
 
 
@@ -69,9 +77,6 @@ void note_class::view_note(const std::vector<Note> &notes){
 
 
 
-
-
-
 void note_class::delete_note(std::vector<Note> &notes){
     if(notes.empty()){
         std::cout << "No notes available to delete!\n";
@@ -92,8 +97,6 @@ void note_class::delete_note(std::vector<Note> &notes){
         std::cout << "Invalid note number!\n";
     }
 }
-
-
 
 
 
@@ -148,8 +151,6 @@ void note_class::edit_note(std::vector<Note> &notes){
 
 
 
-
-
 void note_class::create_txt(const std::vector<Note> &notes) {
     static int file_counter = 1;
     if (notes.empty()) {
@@ -182,13 +183,18 @@ void note_class::create_txt(const std::vector<Note> &notes) {
 }
 
 
+
+
+
+
+
+
 void note_class::search_note_title(const std::vector<Note> &notes){
-
     std::string search_title;
-
     std::cout << "Please enter the title you wish to search for: ";
     getline(std::cin, search_title);
 
+    bool found = false;
     for(const auto& titles : notes){
         if(titles.title == search_title){
             std::cout << "---------------------------------------------------\n";
@@ -197,37 +203,42 @@ void note_class::search_note_title(const std::vector<Note> &notes){
             std::cout << "Content: " << titles.content << "\n";
             std::cout << "Created at: " << titles.createdAt << "\n";
             std::cout << "---------------------------------------------------\n";
+            found = true;
         }
-        else{
-            std::cout << "Note not found!\n";
-        }
+    }
+    if(!found) {
+        std::cout << "Note not found!\n";
     }
 }
 
 
 
 
+
+
+
 void note_class::search_note_content(const std::vector<Note> &notes){
-
     std::string search_content;
-
     std::cout << "Please enter the content you wish to search for: ";
     getline(std::cin, search_content);
 
+    bool found = false;
     for(const auto& contents : notes){
-        if(contents.title == search_content){
+        if(contents.content == search_content){ 
             std::cout << "---------------------------------------------------\n";
             std::cout << "ID: " << contents.id << "\n";
             std::cout << "Title: " << contents.title << "\n";
             std::cout << "Content: " << contents.content << "\n";
             std::cout << "Created at: " << contents.createdAt << "\n";
             std::cout << "---------------------------------------------------\n";
-        }
-        else{
-            std::cout << "Note not found!\n";
+            found = true;
         }
     }
+    if(!found) {
+        std::cout << "Note not found!\n";
+    }
 }
+
 
 
 
@@ -235,37 +246,37 @@ void note_class::search_note_content(const std::vector<Note> &notes){
 
 
 void note_class::search_note_createdAt(const std::vector<Note> &notes){
-
     std::string search_createdAt;
-
-    std::cout << "Please enter your secret information when creating the note: ";
+    std::cout << "Please enter creation time you wish to search for: ";
     getline(std::cin, search_createdAt);
 
+    bool found = false;
     for(const auto& createdAts : notes){
-        if(createdAts.title == search_createdAt){
+        if(createdAts.createdAt == search_createdAt){ 
             std::cout << "---------------------------------------------------\n";
             std::cout << "ID: " << createdAts.id << "\n";
             std::cout << "Title: " << createdAts.title << "\n";
             std::cout << "Content: " << createdAts.content << "\n";
             std::cout << "Created at: " << createdAts.createdAt << "\n";
             std::cout << "---------------------------------------------------\n";
+            found = true;
         }
-        else{
-            std::cout << "Note not found!\n";
-        }
+    }
+    if(!found) {
+        std::cout << "Note not found!\n";
     }
 }
 
 
 
 
-void note_class::search_menu(const std::vector<Note> &notes){
 
+
+void note_class::search_menu(const std::vector<Note> &notes){
     int choice_search_menu;
     s_running = true;
 
     while(s_running){
-
         #ifdef _WIN32
             std::system("cls");
         #else
@@ -278,9 +289,9 @@ void note_class::search_menu(const std::vector<Note> &notes){
               << "4-Return menu\n"
               << "Your choice: ";
 
-        // HATA DÜZELTİLDİ: if içindeki cin kontrolü parantezi düzeltildi
         if(!(std::cin >> choice_search_menu)){
             std::cout << "Please only number!\n";
+            std::clearerr(stdin);
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::this_thread::sleep_for(std::chrono::seconds(2));
@@ -289,23 +300,22 @@ void note_class::search_menu(const std::vector<Note> &notes){
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-
         switch (choice_search_menu)
         {
         case 1:
             search_note_title(notes);
-            std::cout << "\nPress Enter to return to menu...";
+            std::cout << "\nPress Enter to return...";
             std::cin.get(); 
             break;
         case 2:
             search_note_content(notes);
-            std::cout << "\nPress Enter to return to menu...";
-            std::cin.get(); 
+            std::cout << "\nPress Enter to return...";
+            std::cin.get();
             break;
         case 3:
             search_note_createdAt(notes);
-            std::cout << "\nPress Enter to return to menu...";
-            std::cin.get(); 
+            std::cout << "\nPress Enter to return...";
+            std::cin.get();
             break;
         case 4:
             s_running = false;

@@ -17,7 +17,14 @@ std::vector<Note> notes;
 std::atomic<bool> g_running(true);       
 std::atomic<bool> g_save_finished(false);
 
+
+int g_note_counter = 0; 
+
 std::string note;
+
+
+void file_save(const std::vector<Note> &notes, int current_i);
+void load_file(std::vector<Note> &notes, int &current_i);
 
 #ifdef _WIN32
 BOOL WINAPI ConsoleHandler(DWORD signal);
@@ -25,7 +32,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal);
 
 void header(){
     std::cout << "===============================================\n"
-        << "Note_app v0.7.4-beta - Telif Hakki (c) 2026\n"
+        << "Note_app v0.7.5-beta - Telif Hakki (c) 2026\n"
         << "Licensed under MIT / GPLv3 / Apache 2.0\n"
         << "===============================================\n\n";
     
@@ -33,7 +40,7 @@ void header(){
 
     std::cout << "====================\n"
         << "      Note_App      \n"
-        << "     v0.7.4-beta       \n"
+        << "     v0.7.5-beta       \n"
         << "===================\n\n";
 }
 
@@ -51,7 +58,8 @@ int main(){
     header();
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    std::thread yukleme_thread(load_file, std::ref(notes));
+
+    std::thread yukleme_thread(load_file, std::ref(notes), std::ref(g_note_counter));
     yukleme_thread.detach();
 
     std::cout << "Loading";
@@ -128,7 +136,8 @@ int main(){
         }
     }
 
-    file_save(notes);
+    // Normal çıkışta notları ve sayacı kaydet
+    file_save(notes, g_note_counter);
     std::cout << "Exiting... Goodbye!\n";
     std::this_thread::sleep_for(std::chrono::milliseconds(800)); 
     return 0;
