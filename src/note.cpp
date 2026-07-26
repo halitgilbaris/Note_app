@@ -25,6 +25,7 @@
 
 std::atomic<bool> s_running(true);  
 extern int g_note_counter;
+int g_note_counter = 0;
 
 extern ImFont* normalFont;
 extern ImFont* bigFont;
@@ -365,10 +366,13 @@ void note_class::edit_note(std::vector<Note> &notes, bool* pencereDurumu){
 void note_class::create_txt(const std::vector<Note> &notes, bool* pencereDurumu) {
 
     static int file_counter = 1;
-    static int txtID;
+    static int txtID = 0;
     
     static bool succesTXT = false;
     static bool failTXT = false;
+
+    static bool allsuccesTXT = false;
+    static bool allfailTXT = false;
 
     ImGuiWindowFlags alt_flags = ImGuiWindowFlags_NoTitleBar | 
                                  ImGuiWindowFlags_NoResize | 
@@ -383,49 +387,99 @@ void note_class::create_txt(const std::vector<Note> &notes, bool* pencereDurumu)
     if(ImGui::Begin("Edit note", pencereDurumu, alt_flags)){
 
         ImGui::PushFont(bigFont);
-        ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Please enter the ID of the note you wish to save!");
+        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Please enter the ID of the note you wish to save!");
         ImGui::PopFont();
 
         ImGui::InputInt("##InputID", &txtID, 0, 0, ImGuiInputTextFlags_CharsDecimal);
         ImGui::SameLine();
 
         if(ImGui::Button("Create txt", ImVec2())){
-            for(const auto& x : notes){
-                if(txtID == x.id){
-                    const char* userProfile = std::getenv("USERPROFILE");
+            succesTXT = false;
+            failTXT = false;
+            allsuccesTXT = false;
+            allfailTXT = false;
 
-                    if(userProfile){
-                        std::string desktopPath = std::string(userProfile) + "\\Desktop\\" + std::to_string(file_counter) + "_not.txt";
+            const char* userProfile = std::getenv("USERPROFILE");
+            bool notBulundu = false;
+
+            if(userProfile){
+                for(const auto& x : notes){
+                    if(txtID == x.id){
+                        std::string desktopPath = std::string(userProfile) + "\\Desktop\\" + std::to_string(file_counter) + "_note.txt";
                         std::ofstream file(desktopPath);
 
                         if (file.is_open()) {
                             file << "ID: " << x.id << "\n"
-                                << "Title: " << x.title << "\n"
-                                << "Content: " << x.content << "\n"
-                                << "Created At: " << x.createdAt << "\n";
+                                 << "Title: " << x.title << "\n"
+                                 << "Content: " << x.content << "\n"
+                                 << "Created At: " << x.createdAt << "\n";
                             file.close();
                             file_counter++;
                             succesTXT = true;
                         }
+                        notBulundu = true;
+                        break;
                     }
-                    break;
                 }
-                else{
-                    failTXT = true;
+            }
+            
+            if(!notBulundu || !succesTXT){
+                failTXT = true;
+            }
+        }
+        
+        ImGui::SameLine();
+
+        if(ImGui::Button("Create all txt", ImVec2())){
+            succesTXT = false;
+            failTXT = false;
+            allsuccesTXT = false;
+            allfailTXT = false;
+
+            const char* userProfile = std::getenv("USERPROFILE");
+
+            if(userProfile && !notes.empty()){
+                std::string desktopPath = std::string(userProfile) + "\\Desktop\\All_notes_" + std::to_string(file_counter) + ".txt";
+                std::ofstream file(desktopPath);
+
+                if (file.is_open()) {
+                    for(const auto& e : notes){
+                        file << "========================================\n"
+                             << "ID: " << e.id << "\n"
+                             << "Title: " << e.title << "\n"
+                             << "Content: " << e.content << "\n"
+                             << "Created At: " << e.createdAt << "\n";
+                    }
+                    file << "========================================\n";
+                    file.close();
+                    file_counter++;
+                    allsuccesTXT = true;
+                } else {
+                    allfailTXT = true;
                 }
+            } else {
+                allfailTXT = true;
             }
         }
 
+        ImGui::Spacing();
+        
         if(succesTXT){
-            ImGui::TextColored(ImVec4(0.0, 1.0, 0.0, 1.0), "Transaction successful!");
+            ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), "Selected note exported successfully!");
         }
         else if(failTXT){
-            ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Transaction failed, please check the ID!");
+            ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Transaction failed, please check the ID!");
         }
 
+        if(allsuccesTXT){
+            ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), "All notes combined and exported to a single file successfully!");
+        }
+        else if(allfailTXT){
+            ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Export all failed! The list might be empty.");
+        }
 
         ImGui::Spacing();
-        if(ImGui::Button("Back to menu", ImVec2(150.0, 40.0))){
+        if(ImGui::Button("Back to menu", ImVec2(150.0f, 40.0f))){
             if(pencereDurumu) *pencereDurumu = false;
         }
 
@@ -445,42 +499,42 @@ void note_class::create_txt(const std::vector<Note> &notes, bool* pencereDurumu)
 
 
 
-
-
-
-void note_class::search_note_title(const std::vector<Note> &notes){
-    std::string search_title;
-    std::cout << "Please enter the title you wish to search for: ";
-    getline(std::cin, search_title);
-
-    bool found = false;
-    for(const auto& titles : notes){
-        if(titles.title == search_title){
-            std::cout << "---------------------------------------------------\n";
-            std::cout << "ID: " << titles.id << "\n";
-            std::cout << "Title: " << titles.title << "\n";
-            std::cout << "Content: " << titles.content << "\n";
-            std::cout << "Created at: " << titles.createdAt << "\n";
-            std::cout << "---------------------------------------------------\n";
-            found = true;
-        }
-    }
-    if(!found) {
-        std::cout << "Note not found!\n";
-    }
-}
-
-
-
-
-
-
-
-
-
 //TODO: YAPILACAK
 
 
+//void note_class::search_note_title(const std::vector<Note> &notes){
+//    std::string search_title;
+//    std::cout << "Please enter the title you wish to search for: ";
+//    getline(std::cin, search_title);
+//
+//    bool found = false;
+//    for(const auto& titles : notes){
+//        if(titles.title == search_title){
+//            std::cout << "---------------------------------------------------\n";
+//            std::cout << "ID: " << titles.id << "\n";
+//            std::cout << "Title: " << titles.title << "\n";
+//            std::cout << "Content: " << titles.content << "\n";
+//            std::cout << "Created at: " << titles.createdAt << "\n";
+//            std::cout << "---------------------------------------------------\n";
+//            found = true;
+//        }
+//    }
+//    if(!found) {
+//        std::cout << "Note not found!\n";
+//    }
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //void note_class::search_note_content(const std::vector<Note> &notes){
 //    std::string search_content;
 //    std::cout << "Please enter the content you wish to search for: ";

@@ -179,7 +179,4 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
  /usr/include/c++/15/bits/vector.tcc \
- /home/baris/Desktop/PROJELER/C++/Note_app/include/folder.h \
- /usr/include/c++/15/atomic /usr/include/c++/15/bits/atomic_base.h \
- /usr/include/c++/15/bits/atomic_lockfree_defines.h \
- /usr/include/c++/15/cstdint
+ /home/baris/Desktop/PROJELER/C++/Note_app/include/folder.h

@@ -1,21 +1,21 @@
-# 📝 Note_App v1.0.0
+# 📝 Note_App v1.1.0
 
 C++ ile geliştirilmiş, tamamen terminal (komut satırı) üzerinden çalışan, hızlı ve pratik bir not alma uygulamasıdır. Kullanıcıların yerel bilgisayarlarında kolayca not tutmasını, düzenlemesini ve yönetmesini sağlar.
 
 ## 🚀 Uygulama Özellikleri (Tamamlananlar)
 Uygulama şu anda stabil olarak çalışmaktadır ve şu özellikleri barındırır:
-* 🎨 Gelişmiş Grafik Arayüzü (GUI): Klasik konsol ekranı yerine modern, pencereli ve tamamen dinamik bir Dear ImGui kullanıcı arayüzü desteği.
+* 🎨 **Gelişmiş Grafik Arayüzü (GUI):** Klasik konsol ekranı yerine modern, pencereli ve tamamen dinamik bir Dear ImGui kullanıcı arayüzü desteği.
 * ➕ **Not Ekleme:** Yeni notlarınızı hızlıca sisteme kaydedin.
 * 👁️ **Notları Görüntüleme:** Eklediğiniz tüm notları listeleyin.
 * ❌ **Not Silme:** İhtiyacınız kalmayan notları güvenle kaldırın.
 * ✏️ **Not Düzenleme:** Mevcut notlarınızın içeriğini güncelleyin.
 * 📋 **Gelişmiş Not Yapısı:** Her nota otomatik benzersiz ID, özel Başlık, İçerik alanı ve notun yazıldığı anı kaydeden Zaman Damgası (Tarih/Saat) entegrasyonu.
-* **🔍Gelismis arama:** Notları başlık, içerik ve oluşturulma tarihine göre hızlı ve kolay bir şekilde bulabilirsiniz.
-* 💾 **Masaüstüne Aktarma:** Seçtiğiniz bir notu doğrudan bilgisayarınızın masaüstüne .txt dosyası olarak kaydedin.
-* 🚪 **Çıkış ve Otomatik Kaydetme:** Uygulamadan güvenli çıkış yapma seçeneği; program kapatılırken tüm verileriniz çökme riski olmadan otomatik olarak kaydedilir.
-* 🛡️ **Hatalı Giriş Kontrolü:** Menüde yanlış bir tuşa basıldığında uygulamanın çökmesini engelleyen güvenli kontrol sistemi.
-* 🔄 **Geri Yükleme ve Okuma:** Kaydedilen .txt dosyalarını otomatik olarak okuyarak verilerinizi uygulamada tekrar çalıştırın.
-* 🛡️ **Hata Korumalı Dosya Okuma:** Geri yükleme sırasında bozuk veya yanlış formatlı .txt dosyalarına karşı alınan önlem; hatalı verilerin sistemi çökeltmesini engelleyen güvenli okuma sistemi.
+* **🔍Gelismis arama:** Notları başlık, içerik ve oluşturulma tarihine göre hızlı ve kolay bir şekilde bulabilirsiniz.-----Gecici sureligine yok
+* 💾 **Masaüstüne Aktarma:** Seçtiğiniz bir notu veya tum notlari doğrudan bilgisayarınızın masaüstüne .txt dosyası olarak kaydedin.
+* 🚪 **Çıkış ve Otomatik Kaydetme:** Uygulamadan güvenli çıkış yapma seçeneği; program kapatılırken tüm verileriniz çökme riski olmadan otomatik olarak kaydedilir.-----Gecici sureligine yok
+* 🛡️ **Hatalı Giriş Kontrolü:** Menüde yanlış bir tuşa basıldığında uygulamanın çökmesini engelleyen güvenli kontrol sistemi.-----Gecici sureligine yok
+* 🔄 **Geri Yükleme ve Okuma:** Kaydedilen .txt dosyalarını otomatik olarak okuyarak verilerinizi uygulamada tekrar çalıştırın.-----Gecici sureligine yok
+* 🛡️ **Hata Korumalı Dosya Okuma:** Geri yükleme sırasında bozuk veya yanlış formatlı .txt dosyalarına karşı alınan önlem; hatalı verilerin sistemi çökeltmesini engelleyen güvenli okuma sistemi.-----Gecici sureligine yok
 * 🚪 **Çıkış:** Uygulamadan güvenli çıkış yapma seçeneği.
 
 ## 📂 Proje Yapısı
