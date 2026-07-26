@@ -1,6 +1,54 @@
 [
 {
   "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/folder.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/folder.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_draw.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_draw.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_glfw.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_glfw.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_tables.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_tables.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
+  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_widgets.cpp",
+  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_widgets.cpp",
+  "output": "CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o"
+},
+{
+  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
   "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/main.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/main.cpp",
   "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/main.cpp",
   "output": "CMakeFiles/Note_app.dir/src/main.cpp.o"
@@ -10,11 +58,5 @@
   "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/note.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp",
   "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp",
   "output": "CMakeFiles/Note_app.dir/src/note.cpp.o"
-},
-{
-  "directory": "/home/baris/Desktop/PROJELER/C++/Note_app/build",
-  "command": "/usr/bin/g++  -I/home/baris/Desktop/PROJELER/C++/Note_app/include -g -std=gnu++17 -o CMakeFiles/Note_app.dir/src/folder.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp",
-  "file": "/home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp",
-  "output": "CMakeFiles/Note_app.dir/src/folder.cpp.o"
 }
 ]

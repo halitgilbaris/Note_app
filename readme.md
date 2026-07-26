@@ -1,9 +1,10 @@
-# 📝 Note_App v0.7.7-beta
+# 📝 Note_App v1.0.0
 
 C++ ile geliştirilmiş, tamamen terminal (komut satırı) üzerinden çalışan, hızlı ve pratik bir not alma uygulamasıdır. Kullanıcıların yerel bilgisayarlarında kolayca not tutmasını, düzenlemesini ve yönetmesini sağlar.
 
 ## 🚀 Uygulama Özellikleri (Tamamlananlar)
 Uygulama şu anda stabil olarak çalışmaktadır ve şu özellikleri barındırır:
+* 🎨 Gelişmiş Grafik Arayüzü (GUI): Klasik konsol ekranı yerine modern, pencereli ve tamamen dinamik bir Dear ImGui kullanıcı arayüzü desteği.
 * ➕ **Not Ekleme:** Yeni notlarınızı hızlıca sisteme kaydedin.
 * 👁️ **Notları Görüntüleme:** Eklediğiniz tüm notları listeleyin.
 * ❌ **Not Silme:** İhtiyacınız kalmayan notları güvenle kaldırın.

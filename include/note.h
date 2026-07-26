@@ -11,13 +11,18 @@ struct Note {
 
 class note_class {
 public:
-    void add_note(std::vector<Note> &notes);
-    void view_note(const std::vector<Note> &notes);
-    void delete_note(std::vector<Note> &notes);
-    void edit_note(std::vector<Note> &notes);
-    void create_txt(const std::vector<Note> &notes);
+    void add_note(std::vector<Note> &notes, bool* pencereDurumu);
+    void view_note(const std::vector<Note> &notes, bool* pencereDurumu);
+    void delete_note(std::vector<Note> &notes, bool* pencereDurumu);
+    void edit_note(std::vector<Note> &notes, bool* pencereDurumu);
+    
+    void create_txt(const std::vector<Note> &notes, bool* pencereDurumu);
+
+    void search_menu(const std::vector<Note> &notes, bool* pencereDurumu);
+
+private:
+
     void search_note_title(const std::vector<Note> &notes);
     void search_note_content(const std::vector<Note> &notes);
     void search_note_createdAt(const std::vector<Note> &notes);
-    void search_menu(const std::vector<Note> &notes);
 };

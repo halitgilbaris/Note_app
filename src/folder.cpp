@@ -15,12 +15,13 @@
 #include "folder.h"
 #include "note.h"
 
+// 1. Gerçek Değişken Tanımlamaları En Üstte Olmalı (Başlarında extern yok)
+std::vector<Note> notes;
+std::atomic<bool> g_running(true);
+std::atomic<bool> g_save_finished(false);
+int g_note_counter = 0;
 
-extern std::vector<Note> notes;
-extern std::atomic<bool> g_running;
-extern std::atomic<bool> g_save_finished; 
-extern int g_note_counter; 
-
+// 2. file_save fonksiyonu (ConsoleHandler'dan önce olmalı ki çağrılabilsin)
 void file_save(const std::vector<Note> &notes, int current_i){
     const char* userProfile = std::getenv("USERPROFILE");
     if(!userProfile) return;
@@ -35,9 +36,7 @@ void file_save(const std::vector<Note> &notes, int current_i){
     std::ofstream savefile(saveSystem);
 
     if(savefile.is_open()){
-
         savefile << current_i << "\n";
-
         for(const auto& x : notes){
             savefile << x.id << "|||" 
                     << x.title << "|||" 
@@ -48,12 +47,11 @@ void file_save(const std::vector<Note> &notes, int current_i){
     }
 }
 
-
+// 3. Windows Konsol Dinleyicisi
 #ifdef _WIN32
 BOOL WINAPI ConsoleHandler(DWORD signal){
     if (signal == CTRL_CLOSE_EVENT || signal == CTRL_C_EVENT) { 
         g_running = false; 
-
         file_save(notes, g_note_counter); 
         ExitProcess(0);   
         return TRUE; 
@@ -62,6 +60,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal){
 }
 #endif
 
+// 4. Dosya Yükleme Fonksiyonu
 void load_file(std::vector<Note> &notes, int &current_i){
     g_save_finished = false;
 
@@ -91,7 +90,6 @@ void load_file(std::vector<Note> &notes, int &current_i){
             current_i = 0; 
         }
     }
-
 
     while(std::getline(loadFile, line)){
         std::vector<std::string> tokens;

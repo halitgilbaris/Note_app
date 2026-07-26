@@ -72,10 +72,122 @@ include CMakeFiles/Note_app.dir/flags.make
 CMakeFiles/Note_app.dir/codegen:
 .PHONY : CMakeFiles/Note_app.dir/codegen
 
+CMakeFiles/Note_app.dir/src/folder.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/folder.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp
+CMakeFiles/Note_app.dir/src/folder.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Note_app.dir/src/folder.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/folder.cpp.o -MF CMakeFiles/Note_app.dir/src/folder.cpp.o.d -o CMakeFiles/Note_app.dir/src/folder.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp
+
+CMakeFiles/Note_app.dir/src/folder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/folder.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp > CMakeFiles/Note_app.dir/src/folder.cpp.i
+
+CMakeFiles/Note_app.dir/src/folder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/folder.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp -o CMakeFiles/Note_app.dir/src/folder.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui.cpp
+CMakeFiles/Note_app.dir/src/imgui.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Note_app.dir/src/imgui.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui.cpp
+
+CMakeFiles/Note_app.dir/src/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui.cpp > CMakeFiles/Note_app.dir/src/imgui.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui.cpp -o CMakeFiles/Note_app.dir/src/imgui.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_draw.cpp
+CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_draw.cpp
+
+CMakeFiles/Note_app.dir/src/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui_draw.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_draw.cpp > CMakeFiles/Note_app.dir/src/imgui_draw.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui_draw.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_draw.cpp -o CMakeFiles/Note_app.dir/src/imgui_draw.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_glfw.cpp
+CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_glfw.cpp
+
+CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_glfw.cpp > CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_glfw.cpp -o CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp
+CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp
+
+CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp > CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp -o CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp
+CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp
+
+CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp > CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp -o CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_tables.cpp
+CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_tables.cpp
+
+CMakeFiles/Note_app.dir/src/imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui_tables.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_tables.cpp > CMakeFiles/Note_app.dir/src/imgui_tables.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui_tables.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_tables.cpp -o CMakeFiles/Note_app.dir/src/imgui_tables.cpp.s
+
+CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o: CMakeFiles/Note_app.dir/flags.make
+CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_widgets.cpp
+CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o -MF CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o.d -o CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_widgets.cpp
+
+CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_widgets.cpp > CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.i
+
+CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_widgets.cpp -o CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.s
+
 CMakeFiles/Note_app.dir/src/main.cpp.o: CMakeFiles/Note_app.dir/flags.make
 CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/main.cpp
 CMakeFiles/Note_app.dir/src/main.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Note_app.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Note_app.dir/src/main.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/main.cpp.o -MF CMakeFiles/Note_app.dir/src/main.cpp.o.d -o CMakeFiles/Note_app.dir/src/main.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/main.cpp
 
 CMakeFiles/Note_app.dir/src/main.cpp.i: cmake_force
@@ -89,7 +201,7 @@ CMakeFiles/Note_app.dir/src/main.cpp.s: cmake_force
 CMakeFiles/Note_app.dir/src/note.cpp.o: CMakeFiles/Note_app.dir/flags.make
 CMakeFiles/Note_app.dir/src/note.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp
 CMakeFiles/Note_app.dir/src/note.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Note_app.dir/src/note.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Note_app.dir/src/note.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/note.cpp.o -MF CMakeFiles/Note_app.dir/src/note.cpp.o.d -o CMakeFiles/Note_app.dir/src/note.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp
 
 CMakeFiles/Note_app.dir/src/note.cpp.i: cmake_force
@@ -100,36 +212,38 @@ CMakeFiles/Note_app.dir/src/note.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/note.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/note.cpp -o CMakeFiles/Note_app.dir/src/note.cpp.s
 
-CMakeFiles/Note_app.dir/src/folder.cpp.o: CMakeFiles/Note_app.dir/flags.make
-CMakeFiles/Note_app.dir/src/folder.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp
-CMakeFiles/Note_app.dir/src/folder.cpp.o: CMakeFiles/Note_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Note_app.dir/src/folder.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Note_app.dir/src/folder.cpp.o -MF CMakeFiles/Note_app.dir/src/folder.cpp.o.d -o CMakeFiles/Note_app.dir/src/folder.cpp.o -c /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp
-
-CMakeFiles/Note_app.dir/src/folder.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Note_app.dir/src/folder.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp > CMakeFiles/Note_app.dir/src/folder.cpp.i
-
-CMakeFiles/Note_app.dir/src/folder.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Note_app.dir/src/folder.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/baris/Desktop/PROJELER/C++/Note_app/src/folder.cpp -o CMakeFiles/Note_app.dir/src/folder.cpp.s
-
 # Object files for target Note_app
 Note_app_OBJECTS = \
+"CMakeFiles/Note_app.dir/src/folder.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o" \
+"CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o" \
 "CMakeFiles/Note_app.dir/src/main.cpp.o" \
-"CMakeFiles/Note_app.dir/src/note.cpp.o" \
-"CMakeFiles/Note_app.dir/src/folder.cpp.o"
+"CMakeFiles/Note_app.dir/src/note.cpp.o"
 
 # External object files for target Note_app
 Note_app_EXTERNAL_OBJECTS =
 
+Note_app: CMakeFiles/Note_app.dir/src/folder.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui_draw.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui_tables.cpp.o
+Note_app: CMakeFiles/Note_app.dir/src/imgui_widgets.cpp.o
 Note_app: CMakeFiles/Note_app.dir/src/main.cpp.o
 Note_app: CMakeFiles/Note_app.dir/src/note.cpp.o
-Note_app: CMakeFiles/Note_app.dir/src/folder.cpp.o
 Note_app: CMakeFiles/Note_app.dir/build.make
 Note_app: CMakeFiles/Note_app.dir/compiler_depend.ts
+Note_app: /usr/lib/x86_64-linux-gnu/libglfw.so.3.4
+Note_app: /usr/lib/x86_64-linux-gnu/libGL.so
 Note_app: CMakeFiles/Note_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Note_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/baris/Desktop/PROJELER/C++/Note_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Note_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Note_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
