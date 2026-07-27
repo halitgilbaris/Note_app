@@ -37,3 +37,5 @@ v1.0.0 //Add GUI
 v1.1.0 //Added the ability to extract all files into a single txt file
 
 v1.2.0 //Searching will be possible using the ID, title, and content.
+
+v1.2.1 //Add exe
