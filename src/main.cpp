@@ -4,6 +4,8 @@
 #include <GLFW/glfw3.h>
 #include "imgui_stdlib.h" 
 #include <iostream> 
+#include <filesystem>
+
 
 #include <note.h>
 #include <folder.h>
@@ -51,7 +53,7 @@ int main() {
     static bool searchIDopen = false;
     static bool searchTITLEopen = false;
     static bool searchCONTENTopen = false;
-    bool request_exit = false;
+    bool should_exit = false;
 
 
 
@@ -75,9 +77,27 @@ int main() {
 
 
     #ifdef _WIN32
-        // Windows için standart Arial fontu (Hem normal hem büyük yüklüyoruz)
-        normalFont = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\arial.ttf", 18.0f, NULL, turkce_araligi);
-        bigFont  = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\arial.ttf", 28.0f, NULL, turkce_araligi);
+        const std::vector<const char*> windowsFontCandidates = {
+            "C:\\Windows\\Fonts\\arial.ttf",
+            "C:\\Windows\\Fonts\\Arial.ttf",
+            "C:\\Windows\\Fonts\\segoeui.ttf",
+            "C:\\Windows\\Fonts\\Segoe UI.ttf"
+        };
+
+        bool fontLoaded = false;
+        for (const char* fontPath : windowsFontCandidates) {
+            if (std::filesystem::exists(fontPath)) {
+                normalFont = io.Fonts->AddFontFromFileTTF(fontPath, 18.0f, NULL, turkce_araligi);
+                bigFont = io.Fonts->AddFontFromFileTTF(fontPath, 28.0f, NULL, turkce_araligi);
+                fontLoaded = true;
+                break;
+            }
+        }
+
+        if (!fontLoaded) {
+            normalFont = io.Fonts->AddFontDefault();
+            bigFont = io.Fonts->AddFontDefault();
+        }
     #else
         // Ubuntu / Linux için standart DejaVu fontu (Hem normal hem büyük yüklüyoruz)
         normalFont = io.Fonts->AddFontFromFileTTF("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18.0f, NULL, turkce_araligi);
@@ -95,7 +115,7 @@ int main() {
 
 
     // --- 3. ANA UYGULAMA DÖNGÜSÜ ---
-    while (!glfwWindowShouldClose(window)){
+    while (!should_exit && !glfwWindowShouldClose(window)){
         glfwPollEvents();
 
         ImGui_ImplOpenGL3_NewFrame();
@@ -277,8 +297,9 @@ int main() {
 
             ImGui::SetCursorPosX(0.0);
             if (ImGui::Button("Save and exit", ImVec2(300.0, 75.0))) {
-                request_exit = true;
+                should_exit = true;
                 glfwSetWindowShouldClose(window, GLFW_TRUE);
+                glfwPostEmptyEvent();
             }
 
 
@@ -294,7 +315,7 @@ int main() {
             ImGui::Separator();
 
 
-            const char* telifMetni = "Note_app v1.2.3 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
+            const char* telifMetni = "Note_app v1.2.4 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
             float pencereGenisligi = ImGui::GetWindowSize().x;         
             float metinGenisligi = ImGui::CalcTextSize(telifMetni).x;  
 
@@ -344,7 +365,8 @@ int main() {
 
         // =========================================================
 
-        if (request_exit || glfwWindowShouldClose(window)) {
+        if (should_exit || glfwWindowShouldClose(window)) {
+            file_save(notes);
             break;
         }
 
@@ -358,8 +380,6 @@ int main() {
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         glfwSwapBuffers(window);
     }
-
-    file_save(notes);
 
     // --- 5. KAPANIŞ VE TEMİZLİK ---
     ImGui_ImplOpenGL3_Shutdown();

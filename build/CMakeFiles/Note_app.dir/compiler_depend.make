@@ -21,11 +21,9 @@ CMakeFiles/Note_app.dir/src/folder.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/assert.h \
-  /usr/include/c++/15/algorithm \
   /usr/include/c++/15/atomic \
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
-  /usr/include/c++/15/bits/algorithmfwd.h \
   /usr/include/c++/15/bits/alloc_traits.h \
   /usr/include/c++/15/bits/allocated_ptr.h \
   /usr/include/c++/15/bits/allocator.h \
@@ -86,17 +84,14 @@ CMakeFiles/Note_app.dir/src/folder.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_
   /usr/include/c++/15/bits/sstream.tcc \
   /usr/include/c++/15/bits/std_abs.h \
   /usr/include/c++/15/bits/std_thread.h \
-  /usr/include/c++/15/bits/stl_algo.h \
   /usr/include/c++/15/bits/stl_algobase.h \
   /usr/include/c++/15/bits/stl_bvector.h \
   /usr/include/c++/15/bits/stl_construct.h \
   /usr/include/c++/15/bits/stl_function.h \
-  /usr/include/c++/15/bits/stl_heap.h \
   /usr/include/c++/15/bits/stl_iterator.h \
   /usr/include/c++/15/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15/bits/stl_iterator_base_types.h \
   /usr/include/c++/15/bits/stl_pair.h \
-  /usr/include/c++/15/bits/stl_tempbuf.h \
   /usr/include/c++/15/bits/stl_uninitialized.h \
   /usr/include/c++/15/bits/stl_vector.h \
   /usr/include/c++/15/bits/streambuf.tcc \
@@ -104,7 +99,6 @@ CMakeFiles/Note_app.dir/src/folder.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_
   /usr/include/c++/15/bits/string_view.tcc \
   /usr/include/c++/15/bits/stringfwd.h \
   /usr/include/c++/15/bits/this_thread_sleep.h \
-  /usr/include/c++/15/bits/uniform_int_dist.h \
   /usr/include/c++/15/bits/unique_ptr.h \
   /usr/include/c++/15/bits/uses_allocator.h \
   /usr/include/c++/15/bits/uses_allocator_args.h \
@@ -145,8 +139,6 @@ CMakeFiles/Note_app.dir/src/folder.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_
   /usr/include/c++/15/locale \
   /usr/include/c++/15/new \
   /usr/include/c++/15/ostream \
-  /usr/include/c++/15/pstl/execution_defs.h \
-  /usr/include/c++/15/pstl/glue_algorithm_defs.h \
   /usr/include/c++/15/pstl/pstl_config.h \
   /usr/include/c++/15/ratio \
   /usr/include/c++/15/sstream \
@@ -1655,6 +1647,7 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
   /usr/include/c++/15/bits/alloc_traits.h \
+  /usr/include/c++/15/bits/allocated_ptr.h \
   /usr/include/c++/15/bits/allocator.h \
   /usr/include/c++/15/bits/atomic_base.h \
   /usr/include/c++/15/bits/atomic_lockfree_defines.h \
@@ -1664,6 +1657,8 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/bits/basic_string.tcc \
   /usr/include/c++/15/bits/char_traits.h \
   /usr/include/c++/15/bits/charconv.h \
+  /usr/include/c++/15/bits/chrono.h \
+  /usr/include/c++/15/bits/codecvt.h \
   /usr/include/c++/15/bits/concept_check.h \
   /usr/include/c++/15/bits/cpp_type_traits.h \
   /usr/include/c++/15/bits/cxxabi_forced.h \
@@ -1671,6 +1666,10 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/bits/exception.h \
   /usr/include/c++/15/bits/exception_defines.h \
   /usr/include/c++/15/bits/exception_ptr.h \
+  /usr/include/c++/15/bits/fs_dir.h \
+  /usr/include/c++/15/bits/fs_fwd.h \
+  /usr/include/c++/15/bits/fs_ops.h \
+  /usr/include/c++/15/bits/fs_path.h \
   /usr/include/c++/15/bits/functexcept.h \
   /usr/include/c++/15/bits/functional_hash.h \
   /usr/include/c++/15/bits/hash_bytes.h \
@@ -1679,8 +1678,11 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/bits/istream.tcc \
   /usr/include/c++/15/bits/locale_classes.h \
   /usr/include/c++/15/bits/locale_classes.tcc \
+  /usr/include/c++/15/bits/locale_conv.h \
   /usr/include/c++/15/bits/locale_facets.h \
   /usr/include/c++/15/bits/locale_facets.tcc \
+  /usr/include/c++/15/bits/locale_facets_nonio.h \
+  /usr/include/c++/15/bits/locale_facets_nonio.tcc \
   /usr/include/c++/15/bits/localefwd.h \
   /usr/include/c++/15/bits/memory_resource.h \
   /usr/include/c++/15/bits/memoryfwd.h \
@@ -1690,12 +1692,17 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/bits/ostream.h \
   /usr/include/c++/15/bits/ostream.tcc \
   /usr/include/c++/15/bits/ostream_insert.h \
+  /usr/include/c++/15/bits/parse_numbers.h \
   /usr/include/c++/15/bits/postypes.h \
   /usr/include/c++/15/bits/predefined_ops.h \
   /usr/include/c++/15/bits/ptr_traits.h \
+  /usr/include/c++/15/bits/quoted_string.h \
   /usr/include/c++/15/bits/range_access.h \
   /usr/include/c++/15/bits/refwrap.h \
   /usr/include/c++/15/bits/requires_hosted.h \
+  /usr/include/c++/15/bits/shared_ptr.h \
+  /usr/include/c++/15/bits/shared_ptr_base.h \
+  /usr/include/c++/15/bits/sstream.tcc \
   /usr/include/c++/15/bits/std_abs.h \
   /usr/include/c++/15/bits/stl_algobase.h \
   /usr/include/c++/15/bits/stl_bvector.h \
@@ -1711,6 +1718,7 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/bits/streambuf_iterator.h \
   /usr/include/c++/15/bits/string_view.tcc \
   /usr/include/c++/15/bits/stringfwd.h \
+  /usr/include/c++/15/bits/unique_ptr.h \
   /usr/include/c++/15/bits/uses_allocator.h \
   /usr/include/c++/15/bits/uses_allocator_args.h \
   /usr/include/c++/15/bits/utility.h \
@@ -1719,29 +1727,39 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/c++/15/cctype \
   /usr/include/c++/15/cerrno \
   /usr/include/c++/15/clocale \
+  /usr/include/c++/15/codecvt \
   /usr/include/c++/15/concepts \
   /usr/include/c++/15/cstddef \
   /usr/include/c++/15/cstdint \
   /usr/include/c++/15/cstdio \
   /usr/include/c++/15/cstdlib \
+  /usr/include/c++/15/ctime \
   /usr/include/c++/15/cwchar \
   /usr/include/c++/15/cwctype \
   /usr/include/c++/15/debug/assertions.h \
   /usr/include/c++/15/debug/debug.h \
   /usr/include/c++/15/exception \
+  /usr/include/c++/15/ext/aligned_buffer.h \
   /usr/include/c++/15/ext/alloc_traits.h \
   /usr/include/c++/15/ext/atomicity.h \
+  /usr/include/c++/15/ext/concurrence.h \
   /usr/include/c++/15/ext/numeric_traits.h \
   /usr/include/c++/15/ext/string_conversions.h \
   /usr/include/c++/15/ext/type_traits.h \
+  /usr/include/c++/15/filesystem \
   /usr/include/c++/15/initializer_list \
+  /usr/include/c++/15/iomanip \
   /usr/include/c++/15/ios \
   /usr/include/c++/15/iosfwd \
   /usr/include/c++/15/iostream \
   /usr/include/c++/15/istream \
+  /usr/include/c++/15/limits \
+  /usr/include/c++/15/locale \
   /usr/include/c++/15/new \
   /usr/include/c++/15/ostream \
   /usr/include/c++/15/pstl/pstl_config.h \
+  /usr/include/c++/15/ratio \
+  /usr/include/c++/15/sstream \
   /usr/include/c++/15/stdexcept \
   /usr/include/c++/15/streambuf \
   /usr/include/c++/15/string \
@@ -1756,6 +1774,7 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/libintl.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/posix_types.h \
   /usr/include/linux/sched/types.h \
@@ -1849,7 +1868,9 @@ CMakeFiles/Note_app.dir/src/main.cpp.o: /home/baris/Desktop/PROJELER/C++/Note_ap
   /usr/include/x86_64-linux-gnu/c++/15/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/15/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/15/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -2525,25 +2546,13 @@ CMakeFiles/Note_app.dir/src/imgui.cpp.o:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vlintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o:
+/usr/include/c++/15/ext/numeric_traits.h:
 
-/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp:
+/usr/include/c++/15/bits/quoted_string.h:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vnniintrin.h:
-
-/usr/include/x86_64-linux-gnu/c++/15/bits/messages_members.h:
-
-/usr/include/x86_64-linux-gnu/c++/15/bits/gthr.h:
-
-/usr/lib/i386-linux-gnu/libGLX.so.0:
-
-/usr/include/X11/keysym.h:
-
-/usr/include/x86_64-linux-gnu/c++/15/bits/error_constants.h:
+/usr/include/c++/15/ext/atomicity.h:
 
 /usr/include/c++/15/ext/alloc_traits.h:
 
@@ -2556,6 +2565,18 @@ CMakeFiles/Note_app.dir/src/imgui.cpp.o:
 /usr/include/c++/15/cwchar:
 
 /usr/include/string.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/shaintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/raointintrin.h:
+
+/usr/include/c++/15/ext/type_traits.h:
+
+/usr/include/c++/15/bits/functional_hash.h:
+
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/c++/15/iomanip:
 
 /usr/include/c++/15/cstdlib:
 
@@ -2583,10 +2604,6 @@ CMakeFiles/Note_app.dir/src/imgui.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
-/usr/include/c++/15/bits/uniform_int_dist.h:
-
-/usr/include/features-time64.h:
-
 /usr/include/c++/15/bits/streambuf_iterator.h:
 
 /home/baris/Desktop/PROJELER/C++/Note_app/include/imstb_truetype.h:
@@ -2595,13 +2612,15 @@ CMakeFiles/Note_app.dir/src/imgui.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vnniintrin.h:
+
+/usr/include/x86_64-linux-gnu/c++/15/bits/messages_members.h:
+
 /usr/include/c++/15/bits/fs_ops.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/c++/15/ext/atomicity.h:
 
 /usr/include/c++/15/bits/stl_algobase.h:
 
@@ -2623,12 +2642,6 @@ CMakeFiles/Note_app.dir/src/imgui.cpp.o:
 
 /usr/include/c++/15/bits/range_access.h:
 
-/usr/include/c++/15/bits/quoted_string.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vlintrin.h:
-
-/usr/include/c++/15/ext/numeric_traits.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/include/serializeintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/pconfigintrin.h:
@@ -2649,6 +2662,8 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/GL/glext.h:
 
+/usr/include/c++/15/bits/exception_defines.h:
+
 /usr/include/dlfcn.h:
 
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -2665,11 +2680,9 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/c++/15/bits/ostream.tcc:
 
-/usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h:
-
-/usr/include/c++/15/bits/new_allocator.h:
-
 /usr/include/c++/15/bits/uses_allocator.h:
+
+/usr/include/x86_64-linux-gnu/c++/15/bits/gthr.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vbmiintrin.h:
 
@@ -2693,13 +2706,11 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/c++/15/bits/localefwd.h:
 
-/usr/include/c++/15/bits/locale_facets.tcc:
+/usr/include/c++/15/bits/version.h:
 
-/usr/include/c++/15/bits/locale_conv.h:
+/usr/lib/gcc/x86_64-linux-gnu/15/include/bmi2intrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avxintrin.h:
-
-/usr/include/ctype.h:
+/usr/include/c++/15/bits/concept_check.h:
 
 /home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_impl_opengl3.cpp:
 
@@ -2717,8 +2728,6 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
-/usr/include/c++/15/bits/algorithmfwd.h:
-
 /usr/include/x86_64-linux-gnu/sys/wait.h:
 
 /usr/include/asm-generic/errno-base.h:
@@ -2733,12 +2742,6 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
-/usr/include/c++/15/bits/version.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/bmi2intrin.h:
-
-/usr/include/c++/15/bits/concept_check.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/include/amxint8intrin.h:
 
 /usr/include/c++/15/bits/std_abs.h:
@@ -2751,8 +2754,6 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/asm-generic/bitsperlong.h:
 
-/usr/include/c++/15/bits/stl_tempbuf.h:
-
 /usr/lib/x86_64-linux-gnu/libmvec.so.1:
 
 /usr/include/c++/15/bits/stl_iterator_base_types.h:
@@ -2760,8 +2761,6 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 /usr/include/stdc-predef.h:
 
 /usr/include/c++/15/tr1/poly_laguerre.tcc:
-
-/usr/include/c++/15/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/15/bits/charconv.h:
 
@@ -2857,6 +2856,16 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512cdintrin.h:
+
+/usr/include/c++/15/ext/string_conversions.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o:
+
+/home/baris/Desktop/PROJELER/C++/Note_app/src/imgui_stdlib.cpp:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx512ifmavlintrin.h:
 
 /usr/include/c++/15/bits/ostream.h:
@@ -2877,6 +2886,12 @@ CMakeFiles/Note_app.dir/src/imgui_impl_opengl3.cpp.o:
 
 /usr/include/c++/15/bits/codecvt.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/include/keylockerintrin.h:
+
+/usr/include/c++/15/ext/concurrence.h:
+
+/usr/include/c++/15/bits/exception_ptr.h:
+
 /usr/include/c++/15/bits/cpp_type_traits.h:
 
 /usr/include/c++/15/bits/basic_string.h:
@@ -2889,13 +2904,17 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 
 /usr/include/c++/15/bits/istream.tcc:
 
-/usr/include/c++/15/bits/exception_defines.h:
-
-/usr/include/c++/15/bits/stl_heap.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/include/xsaveoptintrin.h:
 
 /usr/include/c++/15/bits/cxxabi_init_exception.h:
+
+/usr/include/c++/15/bits/locale_facets.tcc:
+
+/usr/include/c++/15/bits/locale_conv.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avxintrin.h:
+
+/usr/include/ctype.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/adxintrin.h:
 
@@ -2911,25 +2930,11 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 
 /usr/include/pthread.h:
 
-/usr/include/c++/15/bits/functional_hash.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/shaintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/raointintrin.h:
-
-/usr/include/c++/15/ext/type_traits.h:
-
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/c++/15/iomanip:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avxvnniintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/time_members.h:
-
-/usr/include/c++/15/algorithm:
 
 /usr/include/c++/15/bits/hash_bytes.h:
 
@@ -2963,29 +2968,13 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 
 /usr/include/c++/15/bits/ios_base.h:
 
-/usr/include/c++/15/bits/stl_algo.h:
-
 /usr/include/c++/15/bits/cxxabi_forced.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/keylockerintrin.h:
-
-/usr/include/c++/15/bits/exception_ptr.h:
-
-/usr/include/c++/15/ext/concurrence.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512cdintrin.h:
-
-/usr/include/c++/15/ext/string_conversions.h:
 
 /usr/include/c++/15/ios:
 
 /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
 /usr/include/c++/15/iosfwd:
-
-/usr/include/x86_64-linux-gnu/c++/15/bits/gthr-default.h:
-
-/usr/include/c++/15/limits:
 
 /usr/include/c++/15/bits/vector.tcc:
 
@@ -3012,10 +3001,6 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 /usr/include/c++/15/new:
 
 /usr/include/c++/15/thread:
-
-/usr/include/c++/15/pstl/execution_defs.h:
-
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/15/pstl/pstl_config.h:
 
@@ -3049,6 +3034,8 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 
 /usr/include/errno.h:
 
+/usr/include/features-time64.h:
+
 /usr/include/features.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx2intrin.h:
@@ -3058,6 +3045,10 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/linux/posix_types.h:
+
+/usr/include/c++/15/limits:
+
+/usr/include/x86_64-linux-gnu/c++/15/bits/gthr-default.h:
 
 /usr/include/locale.h:
 
@@ -3101,6 +3092,8 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
@@ -3142,6 +3135,10 @@ CMakeFiles/Note_app.dir/src/imgui_impl_glfw.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/c++/15/bits/new_allocator.h:
+
+/usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
@@ -3201,6 +3198,8 @@ CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
 /usr/include/c++/15/bits/locale_facets_nonio.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h:
@@ -3222,3 +3221,9 @@ CMakeFiles/Note_app.dir/src/imgui_stdlib.cpp.o:
 /usr/include/c++/15/bits/uses_allocator_args.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/cpu_defines.h:
+
+/usr/lib/i386-linux-gnu/libGLX.so.0:
+
+/usr/include/X11/keysym.h:
+
+/usr/include/x86_64-linux-gnu/c++/15/bits/error_constants.h:

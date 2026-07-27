@@ -257,9 +257,6 @@ void note_class::delete_note(std::vector<Note> &notes, bool* pencereDurumu){
 
 void note_class::edit_note(std::vector<Note> &notes, bool* pencereDurumu){
 
-    static bool editContent = false;
-    static bool editTitle = false;
-
     static std::string editTitleStr = "";
     static std::string editContentStr = "";
 
