@@ -499,149 +499,337 @@ void note_class::create_txt(const std::vector<Note> &notes, bool* pencereDurumu)
 
 
 
-//TODO: YAPILACAK
 
 
-//void note_class::search_note_title(const std::vector<Note> &notes){
-//    std::string search_title;
-//    std::cout << "Please enter the title you wish to search for: ";
-//    getline(std::cin, search_title);
-//
-//    bool found = false;
-//    for(const auto& titles : notes){
-//        if(titles.title == search_title){
-//            std::cout << "---------------------------------------------------\n";
-//            std::cout << "ID: " << titles.id << "\n";
-//            std::cout << "Title: " << titles.title << "\n";
-//            std::cout << "Content: " << titles.content << "\n";
-//            std::cout << "Created at: " << titles.createdAt << "\n";
-//            std::cout << "---------------------------------------------------\n";
-//            found = true;
-//        }
-//    }
-//    if(!found) {
-//        std::cout << "Note not found!\n";
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//void note_class::search_note_content(const std::vector<Note> &notes){
-//    std::string search_content;
-//    std::cout << "Please enter the content you wish to search for: ";
-//    getline(std::cin, search_content);
-//
-//    bool found = false;
-//    for(const auto& contents : notes){
-//        if(contents.content == search_content){ 
-//            std::cout << "---------------------------------------------------\n";
-//            std::cout << "ID: " << contents.id << "\n";
-//            std::cout << "Title: " << contents.title << "\n";
-//            std::cout << "Content: " << contents.content << "\n";
-//            std::cout << "Created at: " << contents.createdAt << "\n";
-//            std::cout << "---------------------------------------------------\n";
-//            found = true;
-//        }
-//    }
-//    if(!found) {
-//        std::cout << "Note not found!\n";
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//
-//void note_class::search_note_createdAt(const std::vector<Note> &notes){
-//    std::string search_createdAt;
-//    std::cout << "Please enter creation time you wish to search for: ";
-//    getline(std::cin, search_createdAt);
-//
-//    bool found = false;
-//    for(const auto& createdAts : notes){
-//        if(createdAts.createdAt == search_createdAt){ 
-//            std::cout << "---------------------------------------------------\n";
-//            std::cout << "ID: " << createdAts.id << "\n";
-//            std::cout << "Title: " << createdAts.title << "\n";
-//            std::cout << "Content: " << createdAts.content << "\n";
-//            std::cout << "Created at: " << createdAts.createdAt << "\n";
-//            std::cout << "---------------------------------------------------\n";
-//            found = true;
-//        }
-//    }
-//    if(!found) {
-//        std::cout << "Note not found!\n";
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//void note_class::search_menu(const std::vector<Note> &notes, bool* pencereDurumu){
-//    int choice_search_menu;
-//    s_running = true;
-//
-//    while(s_running){
-//        #ifdef _WIN32
-//            std::system("cls");
-//        #else
-//            std::system("clear");
-//        #endif
-//
-//        std::cout << "1-Search title\n"
-//              << "2-Search content\n"
-//              << "3-Search created at\n"
-//              << "4-Return menu\n"
-//              << "Your choice: ";
-//
-//        if(!(std::cin >> choice_search_menu)){
-//            std::cout << "Please only number!\n";
-//            std::clearerr(stdin);
-//            std::cin.clear();
-//            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-//            std::this_thread::sleep_for(std::chrono::seconds(2));
-//            continue;
-//        }
-//
-//        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-//
-//        switch (choice_search_menu)
-//        {
-//        case 1:
-//            search_note_title(notes);
-//            std::cout << "\nPress Enter to return...";
-//            std::cin.get(); 
-//            break;
-//        case 2:
-//            search_note_content(notes);
-//            std::cout << "\nPress Enter to return...";
-//            std::cin.get();
-//            break;
-//        case 3:
-//            search_note_createdAt(notes);
-//            std::cout << "\nPress Enter to return...";
-//            std::cin.get();
-//            break;
-//        case 4:
-//            s_running = false;
-//            break;
-//        default:
-//            std::cout << "Invalid choice!\n";
-//            std::this_thread::sleep_for(std::chrono::seconds(2));
-//            break;
-//        }
-//    }
-//}
+
+
+void note_class::search_note_ID(const std::vector<Note> &notes, bool *pencereDurumu, bool* searchIDopen, bool* searchTITLEopen, bool* searchCONTENTopen){
+
+    static int searchID = -1;
+    static bool searchIDSucces = false;
+    static bool searchIDHasRun = false;
+    static std::vector<Note> searchIDResults;
+
+    ImGuiWindowFlags alt_flags = ImGuiWindowFlags_NoTitleBar | 
+                                 ImGuiWindowFlags_NoResize | 
+                                 ImGuiWindowFlags_NoMove | 
+                                 ImGuiWindowFlags_NoCollapse |
+                                 ImGuiWindowFlags_NoBackground; 
+
+    ImGuiIO& io = ImGui::GetIO();
+    ImGui::SetNextWindowPos(ImVec2(0, 0));
+    ImGui::SetNextWindowSize(io.DisplaySize);
+
+    if(ImGui::Begin("Search ID", pencereDurumu, alt_flags)){
+
+        ImGui::PushFont(bigFont);
+        ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Please enter the ID of the note you wish to search for!");
+        ImGui::PopFont();
+
+        ImGui::Spacing();
+
+        ImGui::InputInt("##Search_ID", &searchID, 0, 0, ImGuiInputTextFlags_CharsDecimal);
+        ImGui::SameLine();
+
+        if(ImGui::Button("Search", ImVec2())){
+            searchIDSucces = false;
+            searchIDHasRun = true;
+            searchIDResults.clear();
+
+            for(const auto& ID : notes){
+                if(searchID == ID.id){
+                    searchIDSucces = true;
+                    searchIDResults.push_back(ID);
+                }
+            }
+        }
+
+        if(searchIDHasRun){
+            if(!searchIDSucces){
+                ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Notes not found!");
+            }
+            else{
+                for(const auto& result : searchIDResults){
+                    ImGui::Separator();
+                    ImGui::Text("ID: %d", result.id);
+                    ImGui::Spacing();
+                    ImGui::Text("Title: %s", result.title.c_str());
+                    ImGui::Spacing();
+                    ImGui::Text("Content: %s", result.content.c_str());
+                    ImGui::Spacing();
+                    ImGui::Text("Created at: %s", result.createdAt.c_str());
+                    ImGui::Separator();
+                }
+            }
+        }
+
+        if(ImGui::Button("Back to menu", ImVec2(300.0, 75.0))){
+                if(searchIDopen) *searchIDopen = false;
+                if(searchTITLEopen) *searchTITLEopen = false;
+                if(searchCONTENTopen) *searchCONTENTopen = false;
+                searchIDHasRun = false;
+                searchIDResults.clear();
+                if(pencereDurumu) *pencereDurumu = false;
+            }
+
+        ImGui::End();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void note_class::search_note_title(const std::vector<Note> &notes, bool *pencereDurumu, bool* searchIDopen, bool* searchTITLEopen, bool* searchCONTENTopen){
+
+    static std::string searchTITLE = "";
+    static bool searchTITLESucces = false;
+    static bool searchTitleHasRun = false;
+    static std::vector<Note> searchTitleResults;
+
+
+    ImGuiWindowFlags alt_flags = ImGuiWindowFlags_NoTitleBar | 
+                                 ImGuiWindowFlags_NoResize | 
+                                 ImGuiWindowFlags_NoMove | 
+                                 ImGuiWindowFlags_NoCollapse |
+                                 ImGuiWindowFlags_NoBackground; 
+
+    ImGuiIO& io = ImGui::GetIO();
+    ImGui::SetNextWindowPos(ImVec2(0, 0));
+    ImGui::SetNextWindowSize(io.DisplaySize);
+
+    if(ImGui::Begin("Search Title", pencereDurumu, alt_flags)){
+
+        ImGui::PushFont(bigFont);
+        ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Please enter the title of the note you wish to search for!");
+        ImGui::PopFont();
+
+        ImGui::Spacing();
+
+        ImGui::InputText("##Search_Title", &searchTITLE);
+        ImGui::SameLine();
+
+        if(ImGui::Button("Search", ImVec2())){
+            searchTITLESucces = false;
+            searchTitleHasRun = true;
+            searchTitleResults.clear();
+
+            for(const auto& TITLE : notes){
+                if(searchTITLE == TITLE.title){
+                    searchTITLESucces = true;
+                    searchTitleResults.push_back(TITLE);
+                }
+            }
+        }
+
+        if(searchTitleHasRun){
+            if(!searchTITLESucces){
+                ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Notes not found!");
+            }
+            else{
+                for(const auto& result : searchTitleResults){
+                    ImGui::Separator();
+                    ImGui::Text("ID: %d", result.id);
+                    ImGui::Spacing();
+                    ImGui::Text("Title: %s", result.title.c_str());
+                    ImGui::Spacing();
+                    ImGui::Text("Content: %s", result.content.c_str());
+                    ImGui::Spacing();
+                    ImGui::Text("Created at: %s", result.createdAt.c_str());
+                    ImGui::Separator();
+                }
+            }
+        }
+
+        if(ImGui::Button("Back to menu", ImVec2(300.0, 75.0))){
+                if(searchIDopen) *searchIDopen = false;
+                if(searchTITLEopen) *searchTITLEopen = false;
+                if(searchCONTENTopen) *searchCONTENTopen = false;
+                searchTitleHasRun = false;
+                searchTitleResults.clear();
+                if(pencereDurumu) *pencereDurumu = false;
+            }
+
+        ImGui::End();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void note_class::search_note_content(const std::vector<Note> &notes, bool *pencereDurumu, bool* searchIDopen, bool* searchTITLEopen, bool* searchCONTENTopen){
+
+    static std::string searchCONTENT = "";
+    static bool searchCONTENTSucces = false;
+    static bool searchContentHasRun = false;
+    static std::vector<Note> searchContentResults;
+
+
+    ImGuiWindowFlags alt_flags = ImGuiWindowFlags_NoTitleBar | 
+                                 ImGuiWindowFlags_NoResize | 
+                                 ImGuiWindowFlags_NoMove | 
+                                 ImGuiWindowFlags_NoCollapse |
+                                 ImGuiWindowFlags_NoBackground; 
+
+    ImGuiIO& io = ImGui::GetIO();
+    ImGui::SetNextWindowPos(ImVec2(0, 0));
+    ImGui::SetNextWindowSize(io.DisplaySize);
+
+    if(ImGui::Begin("Search Content", pencereDurumu, alt_flags)){
+
+        ImGui::PushFont(bigFont);
+        ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Please enter the content of the note you wish to search for!");
+        ImGui::PopFont();
+
+        ImGui::Spacing();
+
+        ImGui::InputText("##Search_Content", &searchCONTENT);
+        ImGui::SameLine();
+
+        if(ImGui::Button("Search", ImVec2())){
+            searchCONTENTSucces = false;
+            searchContentHasRun = true;
+            searchContentResults.clear();
+
+            for(const auto& CONTENT : notes){
+                if(searchCONTENT == CONTENT.content){
+                    searchCONTENTSucces = true;
+                    searchContentResults.push_back(CONTENT);
+                }
+            }
+        }
+
+        if(searchContentHasRun){
+            if(!searchCONTENTSucces){
+                ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Notes not found!");
+            }
+            else{
+                for(const auto& result : searchContentResults){
+                    ImGui::Separator();
+                    ImGui::Text("ID: %d", result.id);
+                    ImGui::Spacing();
+                    ImGui::Text("Title: %s", result.title.c_str());
+                    ImGui::Spacing();
+                    ImGui::Text("Content: %s", result.content.c_str());
+                    ImGui::Spacing();
+                    ImGui::Text("Created at: %s", result.createdAt.c_str());
+                    ImGui::Separator();
+                }
+            }
+        }
+
+        if(ImGui::Button("Back to menu", ImVec2(300.0, 75.0))){
+                if(searchIDopen) *searchIDopen = false;
+                if(searchTITLEopen) *searchTITLEopen = false;
+                if(searchCONTENTopen) *searchCONTENTopen = false;
+                searchContentHasRun = false;
+                searchContentResults.clear();
+                if(pencereDurumu) *pencereDurumu = false;
+            }
+
+        ImGui::End();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void note_class::search_menu(const std::vector<Note> &notes, bool* pencereDurumu, bool* searchIDopen, bool* searchTITLEopen, bool* searchCONTENTopen){
+    
+
+
+
+    ImGuiWindowFlags alt_flags = ImGuiWindowFlags_NoTitleBar | 
+                                 ImGuiWindowFlags_NoResize | 
+                                 ImGuiWindowFlags_NoMove | 
+                                 ImGuiWindowFlags_NoCollapse |
+                                 ImGuiWindowFlags_NoBackground; 
+
+    ImGuiIO& io = ImGui::GetIO();
+    ImGui::SetNextWindowPos(ImVec2(0, 0));
+    ImGui::SetNextWindowSize(io.DisplaySize);
+    
+
+    if(!*searchIDopen && !*searchTITLEopen && !*searchCONTENTopen){
+
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0, 0.0));
+
+        ImGui::Begin("AnaEkran", NULL, alt_flags);{
+            ImGui::PushFont(bigFont);
+            ImGui::TextColored(ImVec4(1.0, 0.0, 0.0, 1.0), "Please select your search type!");
+            ImGui::PopFont();
+
+
+            if(ImGui::Button("Search ID", ImVec2(300.0, 75.0))){
+                *searchIDopen = true;
+                *searchTITLEopen = false;
+                *searchCONTENTopen = false;
+            }
+
+
+            if(ImGui::Button("Search title", ImVec2(300.0, 75.0))){
+                *searchTITLEopen = true;
+                *searchIDopen = false;
+                *searchCONTENTopen = false;
+            }
+
+
+            if(ImGui::Button("Search content", ImVec2(300.0, 75.0))){
+                *searchCONTENTopen = true;
+                *searchIDopen = false;
+                *searchTITLEopen = false;
+            }
+
+
+            if(ImGui::Button("Back to menu", ImVec2(300.0, 75.0))){
+                if(pencereDurumu) *pencereDurumu = false;
+            }
+
+            ImGui::End();
+        }
+
+        ImGui::PopStyleVar();
+
+    }
+    else{
+        if(*searchIDopen){
+            search_note_ID(notes, pencereDurumu, searchIDopen, searchTITLEopen, searchCONTENTopen);
+        }
+        else if(*searchTITLEopen){
+            search_note_title(notes, pencereDurumu, searchIDopen, searchTITLEopen, searchCONTENTopen);
+        }
+        else if(*searchCONTENTopen){
+            search_note_content(notes, pencereDurumu, searchIDopen, searchTITLEopen, searchCONTENTopen);
+        }
+    }
+    
+}

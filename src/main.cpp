@@ -55,6 +55,9 @@ int main() {
     static bool noNoteEdit = false;
     static bool noNoteTXT = false;
     static bool txtBasarili = false;
+    static bool searchIDopen = false;
+    static bool searchTITLEopen = false;
+    static bool searchCONTENTopen = false;
 
 
 
@@ -264,12 +267,14 @@ int main() {
 
 
 
-            //TODO: YAPILACAK
-            //ImGui::SetCursorPosX(0.0);
-            //if(ImGui::Button("Search menu", ImVec2(300.0, 75.0))){
-            //    aramaAcik = true;
-            //    noNoteWarning = false;
-            //}
+            ImGui::SetCursorPosX(0.0);
+            if(ImGui::Button("Search menu", ImVec2(300.0, 75.0))){
+                searchIDopen = false;
+                searchTITLEopen = false;
+                searchCONTENTopen = false;
+                aramaAcik = true;
+                noNoteWarning = false;
+            }
 
 
 
@@ -292,7 +297,7 @@ int main() {
             ImGui::Separator();
 
 
-            const char* telifMetni = "Note_app v1.1.0 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
+            const char* telifMetni = "Note_app v1.2.0 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
             float pencereGenisligi = ImGui::GetWindowSize().x;         
             float metinGenisligi = ImGui::CalcTextSize(telifMetni).x;  
 
@@ -325,9 +330,15 @@ int main() {
             else if (txtAcik){
                 note_Class.create_txt(notes, &txtAcik);
             }
-            //else if (aramaAcik) {
-            //    note_Class.search_menu(notes, &aramaAcik);
-            //}
+            else if (aramaAcik) {
+                note_Class.search_menu(notes, &aramaAcik, &searchIDopen, &searchTITLEopen, &searchCONTENTopen);
+                
+                if(searchIDopen == true && searchTITLEopen == true && searchCONTENTopen == true){
+                    searchIDopen = false;
+                    searchTITLEopen = false;
+                    searchCONTENTopen = false;
+                }
+            }
         }
 
 
