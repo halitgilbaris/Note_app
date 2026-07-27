@@ -25,12 +25,9 @@
 
 std::atomic<bool> s_running(true);  
 extern int g_note_counter;
-int g_note_counter = 0;
 
 extern ImFont* normalFont;
 extern ImFont* bigFont;
-
-int number = 1;
 
 std::string titleStr = "";
 std::string contentStr = "";
@@ -68,6 +65,10 @@ void note_class::add_note(std::vector<Note> &notes, bool* pencereDurumu) {
 
         if (ImGui::Button("Save note", ImVec2(150.0, 45.0))) {
             if (!titleStr.empty()) {
+                if (g_note_counter < 1) {
+                    g_note_counter = 1;
+                }
+
                 Note newNote;
                 newNote.id = g_note_counter;
                 newNote.title = titleStr;
@@ -128,9 +129,10 @@ void note_class::view_note(const std::vector<Note> &notes, bool* pencereDurumu){
 
     if(ImGui::Begin("View note", pencereDurumu, alt_flags)){
 
+        int displayNumber = 1;
         for(const auto& x : notes){
             ImGui::PushFont(bigFont);
-            ImGui::Text("Note %d", number);
+            ImGui::Text("Note %d", displayNumber);
             ImGui::PopFont();
 
             ImGui::Text("ID: %d", x.id);
@@ -142,6 +144,7 @@ void note_class::view_note(const std::vector<Note> &notes, bool* pencereDurumu){
             ImGui::Text("Created at: %s", x.createdAt.c_str());
             ImGui::Spacing();
             ImGui::Separator();
+            displayNumber++;
         }
         if(ImGui::Button("Back",ImVec2(100.0, 45.0))){
             if(pencereDurumu) *pencereDurumu = false;
@@ -207,6 +210,9 @@ void note_class::delete_note(std::vector<Note> &notes, bool* pencereDurumu){
 
             if(delIndeks != -1){
                 notes.erase(notes.begin() + delIndeks);
+                if(notes.empty()){
+                    g_note_counter = 1;
+                }
                 succesID = true;
             }
             else{
@@ -272,6 +278,7 @@ void note_class::edit_note(std::vector<Note> &notes, bool* pencereDurumu){
 
     if(ImGui::Begin("Edit note", pencereDurumu, alt_flags)){
 
+        int displayNumber = 1;
         for(auto& x : notes){ 
 
             std::string titleButtonID = "Edit Title##" + std::to_string(x.id);
@@ -281,8 +288,9 @@ void note_class::edit_note(std::vector<Note> &notes, bool* pencereDurumu){
             std::string saveContent = "Save##Content" + std::to_string(x.id);
 
             ImGui::PushFont(bigFont);
-            ImGui::Text("Note %d", number);
+            ImGui::Text("Note %d", displayNumber);
             ImGui::PopFont();
+            displayNumber++;
 
             ImGui::Text("ID: %d", x.id);
             ImGui::Spacing();

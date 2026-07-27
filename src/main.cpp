@@ -8,13 +8,6 @@
 #include <note.h>
 #include <folder.h>
 
-// 💾 UYGULAMA KAPANDIĞINDA ÇALIŞACAK FONKSİYON
-void NotlariKaydet() {
-    // Uygulama çarpıdan kapatıldığı an bu fonksiyon tetiklenir.
-    // Dosyaya yazma kodlarını buraya ekleyebilirsin.
-    std::cout << "Uygulama kapatiliyor, notlar kaydediliyor..." << std::endl;
-}
-
 
 ImFont* normalFont = nullptr;
 ImFont* bigFont = nullptr;
@@ -70,6 +63,8 @@ int main() {
     ImGui::StyleColorsDark();
 
     ImGuiIO& io = ImGui::GetIO();
+
+    load_file(notes);
 
     static const ImWchar turkce_araligi[] = {
         0x0020, 0x00FF, // Standart Latin Karakterleri
@@ -280,7 +275,7 @@ int main() {
 
 
             ImGui::SetCursorPosX(0.0);
-            if (ImGui::Button("Exit", ImVec2(300.0, 75.0))) {
+            if (ImGui::Button("Save and exit", ImVec2(300.0, 75.0))) {
                 glfwSetWindowShouldClose(window, GLFW_TRUE); 
             }
 
@@ -297,7 +292,7 @@ int main() {
             ImGui::Separator();
 
 
-            const char* telifMetni = "Note_app v1.2.1 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
+            const char* telifMetni = "Note_app v1.2.2 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
             float pencereGenisligi = ImGui::GetWindowSize().x;         
             float metinGenisligi = ImGui::CalcTextSize(telifMetni).x;  
 
@@ -358,8 +353,7 @@ int main() {
         glfwSwapBuffers(window);
     }
 
-    // 💾 DÖNGÜDEN ÇIKILDI (Kullanıcı X tuşuna bastı)
-    NotlariKaydet();
+    file_save(notes);
 
     // --- 5. KAPANIŞ VE TEMİZLİK ---
     ImGui_ImplOpenGL3_Shutdown();

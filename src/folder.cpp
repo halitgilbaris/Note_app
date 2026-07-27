@@ -1,123 +1,134 @@
-//#include <iostream>
-//#include <string>
-//#include <cstdlib>
-//#include <filesystem>
-//#include <fstream>
-//#include <vector>
-//#include <thread>
-//#include <atomic>
-//
-//#ifdef _WIN32
-//#include <windows.h>
-//#include <direct.h> 
-//#endif
-//
-//#include "folder.h"
-//#include "note.h"
-//
-//// 1. Gerçek Değişken Tanımlamaları En Üstte Olmalı (Başlarında extern yok)
-//std::vector<Note> notes;
-//std::atomic<bool> g_running(true);
-//std::atomic<bool> g_save_finished(false);
-//int g_note_counter = 0;
-//
-//// 2. file_save fonksiyonu (ConsoleHandler'dan önce olmalı ki çağrılabilsin)
-//void file_save(const std::vector<Note> &notes, int current_i){
-//    const char* userProfile = std::getenv("USERPROFILE");
-//    if(!userProfile) return;
-//
-//    std::string folderPath = std::string(userProfile) + "\\Note_app";
-//
-//    #ifdef _WIN32
-//    _mkdir(folderPath.c_str());
-//    #endif
-//
-//    std::string saveSystem = folderPath + "\\saves.txt";
-//    std::ofstream savefile(saveSystem);
-//
-//    if(savefile.is_open()){
-//        savefile << current_i << "\n";
-//        for(const auto& x : notes){
-//            savefile << x.id << "|||" 
-//                    << x.title << "|||" 
-//                    << x.content << "|||" 
-//                    << x.createdAt << "\n";
-//        }
-//        savefile.close();
-//    }
-//}
-//
-//// 3. Windows Konsol Dinleyicisi
-//#ifdef _WIN32
-//BOOL WINAPI ConsoleHandler(DWORD signal){
-//    if (signal == CTRL_CLOSE_EVENT || signal == CTRL_C_EVENT) { 
-//        g_running = false; 
-//        file_save(notes, g_note_counter); 
-//        ExitProcess(0);   
-//        return TRUE; 
-//    }
-//    return FALSE;
-//}
-//#endif
-//
-//// 4. Dosya Yükleme Fonksiyonu
-//void load_file(std::vector<Note> &notes, int &current_i){
-//    g_save_finished = false;
-//
-//    const char* userProfile = getenv("USERPROFILE");
-//    if(!userProfile){
-//        g_save_finished = true;
-//        return;
-//    }
-//
-//    std::string saveSystem = std::string(userProfile) + "\\Note_app\\saves.txt";
-//    std::ifstream loadFile(saveSystem);
-//
-//    if(!loadFile.is_open()){
-//        std::cerr << "Error: Could not open the save file!\n";
-//        current_i = 0; 
-//        g_save_finished = true;
-//        return;
-//    }
-//
-//    std::string line;
-//    notes.clear();
-//
-//    if(std::getline(loadFile, line)){
-//        try {
-//            current_i = std::stoi(line);
-//        } catch (...) {
-//            current_i = 0; 
-//        }
-//    }
-//
-//    while(std::getline(loadFile, line)){
-//        std::vector<std::string> tokens;
-//        size_t pos = 0;
-//        std::string token;
-//        std::string delimiter = "|||";
-//
-//        while ((pos = line.find(delimiter)) != std::string::npos) {
-//            token = line.substr(0, pos);
-//            tokens.push_back(token);
-//            line.erase(0, pos + delimiter.length());
-//        }
-//        tokens.push_back(line); 
-//
-//        if(tokens.size() == 4){
-//            Note loadedNote;
-//            loadedNote.id = std::stoi(tokens[0]);
-//            loadedNote.title = tokens[1];
-//            loadedNote.content = tokens[2];
-//            loadedNote.createdAt = tokens[3];
-//            notes.push_back(loadedNote);
-//        }
-//    }
-//    
-//    if(loadFile.bad()){
-//        std::cerr << "Error: An error occurred while reading the save file!\n";
-//    }
-//    loadFile.close();
-//    g_save_finished = true;
-//}
-//
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <filesystem>
+#include <fstream>
+#include <vector>
+#include <thread>
+#include <atomic>
+#include <algorithm>
+#include "imgui.h"
+#include "imgui_stdlib.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+#include <GLFW/glfw3.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <direct.h> 
+#endif
+
+#include "folder.h"
+#include "note.h"
+
+
+
+
+
+std::vector<Note> notes;
+std::atomic<bool> g_running(true);
+std::atomic<bool> g_save_finished(false);
+int g_note_counter = 1;
+
+namespace {
+std::string get_notes_folder_path() {
+    const char* userProfile = std::getenv("USERPROFILE");
+    const char* homeDir = std::getenv("HOME");
+    std::string base = userProfile ? userProfile : (homeDir ? homeDir : ".");
+
+#ifdef _WIN32
+    return base + "\\Note_app";
+#else
+    return base + "/Note_app";
+#endif
+}
+}
+
+void file_save(const std::vector<Note> &notes){
+    std::string folderPath = get_notes_folder_path();
+    std::filesystem::create_directories(folderPath);
+
+#ifdef _WIN32
+    std::string saveSystem = folderPath + "\\saves.txt";
+#else
+    std::string saveSystem = folderPath + "/saves.txt";
+#endif
+
+    std::ofstream savefile(saveSystem);
+
+    if(savefile.is_open()){
+        savefile << "__next_id__=" << g_note_counter << "\n";
+        for(const auto& x : notes){
+            savefile << x.id << "|||" 
+                    << x.title << "|||" 
+                    << x.content << "|||" 
+                    << x.createdAt << "\n";
+        }
+        savefile.close();
+    }
+}
+
+
+
+
+
+void load_file(std::vector<Note> &notes){
+    g_save_finished = false;
+
+    std::string folderPath = get_notes_folder_path();
+#ifdef _WIN32
+    std::string saveSystem = folderPath + "\\saves.txt";
+#else
+    std::string saveSystem = folderPath + "/saves.txt";
+#endif
+
+    std::ifstream loadFile(saveSystem);
+    if(!loadFile.is_open()){
+        g_note_counter = 1;
+        g_save_finished = true;
+        return;
+    }
+
+    std::string line;
+    notes.clear();
+    int loaded_next_id = 1;
+    int highest_id = 0;
+
+    while(std::getline(loadFile, line)){
+        if(line.rfind("__next_id__=", 0) == 0){
+            loaded_next_id = std::stoi(line.substr(std::string("__next_id__=").size()));
+            continue;
+        }
+
+        std::vector<std::string> tokens;
+        size_t pos = 0;
+        std::string token;
+        std::string delimiter = "|||";
+
+        while ((pos = line.find(delimiter)) != std::string::npos) {
+            token = line.substr(0, pos);
+            tokens.push_back(token);
+            line.erase(0, pos + delimiter.length());
+        }
+        tokens.push_back(line);
+
+        if(tokens.size() == 4){
+            Note loadedNote;
+            loadedNote.id = std::stoi(tokens[0]);
+            loadedNote.title = tokens[1];
+            loadedNote.content = tokens[2];
+            loadedNote.createdAt = tokens[3];
+            notes.push_back(loadedNote);
+            highest_id = std::max(highest_id, loadedNote.id);
+        }
+    }
+
+    if(notes.empty()){
+        g_note_counter = 1;
+    } else {
+        g_note_counter = std::max(loaded_next_id, highest_id + 1);
+    }
+
+    loadFile.close();
+    g_save_finished = true;
+}
