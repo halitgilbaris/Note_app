@@ -51,6 +51,7 @@ int main() {
     static bool searchIDopen = false;
     static bool searchTITLEopen = false;
     static bool searchCONTENTopen = false;
+    bool request_exit = false;
 
 
 
@@ -276,7 +277,8 @@ int main() {
 
             ImGui::SetCursorPosX(0.0);
             if (ImGui::Button("Save and exit", ImVec2(300.0, 75.0))) {
-                glfwSetWindowShouldClose(window, GLFW_TRUE); 
+                request_exit = true;
+                glfwSetWindowShouldClose(window, GLFW_TRUE);
             }
 
 
@@ -292,7 +294,7 @@ int main() {
             ImGui::Separator();
 
 
-            const char* telifMetni = "Note_app v1.2.2 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
+            const char* telifMetni = "Note_app v1.2.3 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
             float pencereGenisligi = ImGui::GetWindowSize().x;         
             float metinGenisligi = ImGui::CalcTextSize(telifMetni).x;  
 
@@ -341,6 +343,10 @@ int main() {
 
 
         // =========================================================
+
+        if (request_exit || glfwWindowShouldClose(window)) {
+            break;
+        }
 
         // --- 4. EKRANA ÇİZME VE TEMİZLİK ---
         ImGui::Render();
