@@ -131,24 +131,55 @@ void note_class::view_note(const std::vector<Note> &notes, bool* pencereDurumu){
 
         int displayNumber = 1;
         for(const auto& x : notes){
+
+            std::string Copy_Title = "Copy Title##" + std::to_string(x.id);
+            std::string Copy_Content = "Copy Content##" + std::to_string(x.id);
+            std::string Copy_All_Note = "Copy all note##" + std::to_string(x.id);
+
+
             ImGui::PushFont(bigFont);
             ImGui::Text("Note %d", displayNumber);
             ImGui::PopFont();
 
             ImGui::Text("ID: %d", x.id);
             ImGui::Spacing();
+
             ImGui::Text("Title: %s", x.title.c_str());
+            ImGui::SameLine(0.0, 40.0);
+            if(ImGui::Button(Copy_Title.c_str())){
+                ImGui::SetClipboardText(x.title.c_str());
+            }
             ImGui::Spacing();
+
             ImGui::Text("Content: %s", x.content.c_str());
+            ImGui::SameLine(0.0, 40.0);
+            if(ImGui::Button(Copy_Content.c_str())){
+                ImGui::SetClipboardText(x.content.c_str());
+            }
+
             ImGui::Spacing();
             ImGui::Text("Created at: %s", x.createdAt.c_str());
             ImGui::Spacing();
+
+
+            ImGui::SameLine(0.0, 10.0);
+            if(ImGui::Button(Copy_All_Note.c_str())){
+                std::string All_Note = "Note " + std::to_string(displayNumber) + "\n"
+                                        + "ID: " + std::to_string(x.id) + "\n"
+                                        + "Title: " + x.title + "\n"
+                                        + "Content: " + x.content + "\n"
+                                        + "Created at: " + x.createdAt + "\n"
+                                        + "===========================================\n";
+                ImGui::SetClipboardText(All_Note.c_str());
+            }
+
             ImGui::Separator();
             displayNumber++;
         }
         if(ImGui::Button("Back",ImVec2(100.0, 45.0))){
-            if(pencereDurumu) *pencereDurumu = false;
+                if(pencereDurumu) *pencereDurumu = false;
         }
+        
 
 
     }
@@ -838,3 +869,4 @@ void note_class::search_menu(const std::vector<Note> &notes, bool* pencereDurumu
     }
     
 }
+

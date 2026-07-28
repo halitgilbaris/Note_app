@@ -20,6 +20,7 @@ public:
 
     void search_menu(const std::vector<Note> &notes, bool* pencereDurumu, bool* searchIDopen, bool* searchTITLEopen, bool* searchCONTENTopen);
 
+
 private:
 
     void search_note_ID(const std::vector<Note> &notes, bool *pencereDurumu, bool* searchIDopen, bool* searchTITLEopen, bool* searchCONTENTopen);

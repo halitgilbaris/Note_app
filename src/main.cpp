@@ -315,7 +315,7 @@ int main() {
             ImGui::Separator();
 
 
-            const char* telifMetni = "Note_app v1.2.4 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
+            const char* telifMetni = "Note_app v1.3.4 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
             float pencereGenisligi = ImGui::GetWindowSize().x;         
             float metinGenisligi = ImGui::CalcTextSize(telifMetni).x;  
 
