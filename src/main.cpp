@@ -54,6 +54,7 @@ int main() {
     static bool searchTITLEopen = false;
     static bool searchCONTENTopen = false;
     bool should_exit = false;
+    
 
 
 
@@ -303,6 +304,68 @@ int main() {
             }
 
 
+            // ...existing code...
+    static bool IDopen = false;
+    static bool TITLEopen = false;
+    static bool CONTENTopen = false;
+    static int searchMode = 0; // 0 = title, 1 = content
+    static char searchQuery[512] = "";
+    static std::string searchResultText = "";
+    static bool searchPerformed = false;
+    bool should_exit = false;
+// ...existing code...
+
+            // ...existing code...
+
+
+            ImGui::Spacing();
+            ImGui::Separator();
+            ImGui::Text("Search notes");
+
+            ImGui::RadioButton("Search by title", &searchMode, 0);
+            ImGui::SameLine();
+            ImGui::RadioButton("Search by content", &searchMode, 1);
+
+            ImGui::SetNextItemWidth(600.0f);
+            ImGui::InputText("##searchQuery", searchQuery, IM_ARRAYSIZE(searchQuery));
+            ImGui::SameLine();
+            if (ImGui::Button("Search note", ImVec2(170.0f, 35.0f))) {
+                std::string query = searchQuery;
+                if (query.empty()) {
+                    searchResultText = "Type search text in the box.";
+                } else {
+                    searchResultText.clear();
+                    int noteIndex = 0;
+                    for (const Note& note : notes) {
+                        const std::string& field = (searchMode == 0 ? note.title : note.content);
+                        if (field.find(query) != std::string::npos) {
+                            ++noteIndex;
+                            std::string titlePart = note.title.substr(0, std::min<size_t>(10, note.title.size()));
+                            std::string contentPart = note.content.substr(0, std::min<size_t>(20, note.content.size()));
+                            searchResultText += "note " + std::to_string(noteIndex) +
+                                                " --> " + std::to_string(note.id) +
+                                                " /// " + titlePart +
+                                                " /// " + contentPart +
+                                                " /// " + note.createdAt +
+                                                "\n";
+                                                ImGui::Spacing();
+                        }
+                    }
+                    if (noteIndex == 0) {
+                        searchResultText = "No matching notes found.";
+                    }
+                }
+                searchPerformed = true;
+            }
+
+            if (searchPerformed) {
+                ImGui::Spacing();
+                ImGui::TextWrapped("%s", searchResultText.c_str());
+            }
+// ...existing code...
+// ...existing code...
+
+
 
 
             float kalanBoslukY = ImGui::GetContentRegionAvail().y;
@@ -315,7 +378,7 @@ int main() {
             ImGui::Separator();
 
 
-            const char* telifMetni = "Note_app v1.3.4 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
+            const char* telifMetni = "Note_app v1.4.4 - Telif Hakki (c) 2026 - Licensed under MIT / GPLv3 / Apache 2.0";
             float pencereGenisligi = ImGui::GetWindowSize().x;         
             float metinGenisligi = ImGui::CalcTextSize(telifMetni).x;  
 
@@ -384,7 +447,7 @@ int main() {
     // --- 5. KAPANIŞ VE TEMİZLİK ---
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
+    ImGui::DestroyContext(nullptr);
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;

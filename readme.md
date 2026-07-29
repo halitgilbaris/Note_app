@@ -1,4 +1,4 @@
-# 📝 Note_App v1.3.4
+# 📝 Note_App v1.4.4
 
 C++ ile geliştirilmiş, tamamen terminal (komut satırı) üzerinden çalışan, hızlı ve pratik bir not alma uygulamasıdır. Kullanıcıların yerel bilgisayarlarında kolayca not tutmasını, düzenlemesini ve yönetmesini sağlar.
 
@@ -11,6 +11,7 @@ Uygulama şu anda stabil olarak çalışmaktadır ve şu özellikleri barındır
 * ✏️ **Not Düzenleme:** Mevcut notlarınızın içeriğini güncelleyin.
 * 📋 **Gelişmiş Not Yapısı:** Her nota otomatik benzersiz ID, özel Başlık, İçerik alanı ve notun yazıldığı anı kaydeden Zaman Damgası (Tarih/Saat) entegrasyonu.
 * 🔍**Gelismis arama:** Notları başlık, içerik ve oluşturulma tarihine göre hızlı ve kolay bir şekilde bulabilirsiniz.
+* ⚡ **Hızlı Arama Entegrasyonu:** Hızlı arama eklendi! Ana arayüz üzerinden notlarınıza anında erişim sağlama.
 * 📌 **Panoya Kopyalama:** Seçtiğiniz not başlığını veya tüm not detaylarını tek bir tıkla bilgisayarınızın panosuna kopyalayabilirsiniz.
 * 💾 **Masaüstüne Aktarma:** Seçtiğiniz bir notu veya tum notlari doğrudan bilgisayarınızın masaüstüne .txt dosyası olarak kaydedin.
 * 🚪 **Çıkış ve Otomatik Kaydetme:** Uygulamadan güvenli çıkış yapma seçeneği; program kapatılırken tüm verileriniz çökme riski olmadan otomatik olarak kaydedilir.-----Gecici sureligine yok sadece otomatik kaydetme
