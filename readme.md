@@ -1,19 +1,11 @@
+![Build Status](https://github.com)
+
+
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/2e428d83-882a-4afc-a104-5dcd514248ae" autoplay muted loop playsinline width="100%" style="border-radius: 8px;">
   </video>
 </p>
-
-
-
-
-
-
-
-
-
-
-
 
 
 # 📝 Note_App v1.4.4
