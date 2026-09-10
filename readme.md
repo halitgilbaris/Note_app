@@ -1,4 +1,5 @@
-![halitgilbaris](Note_app)
+![Build Status](https://github.com)
+
 
 
 
